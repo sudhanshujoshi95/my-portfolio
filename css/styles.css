@@ -524,7 +524,7 @@ a.active {
 
 #intro h1 {
     color: #FFF;
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 300;
     letter-spacing: 3px;
 }
@@ -539,6 +539,13 @@ a.active {
     left: 0;
     right: 0;
     z-index: 0;
+}
+
+@media screen and (max-width: 375px) {
+    /* Adjust your layout for smaller screens */
+    body {
+      overflow-x: hidden; /* Prevent horizontal scrolling on smaller screens */
+    }
 }
 
 @media screen and (max-width: 1000px) {
