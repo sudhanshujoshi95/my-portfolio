@@ -1,3 +1,5 @@
+//custom js
+
 $(function() {
 	/* Intro */
 	$('.wp1').waypoint(function() {
