@@ -24,12 +24,11 @@
     function applyScene() {
         var s = window.sjApply();
         document.getElementById('scene-time-icon').innerHTML = iconFor('time', s.time);
-        document.getElementById('scene-season-icon').innerHTML = iconFor('season', s.season);
         chips.forEach(function (c) {
             c.setAttribute('aria-pressed', String(s.pick[c.getAttribute('data-kind')] === c.getAttribute('data-value')));
         });
         var label = s.season + ' ' + s.time;
-        var custom = s.pick.time !== 'auto' || s.pick.season !== 'auto';
+        var custom = s.pick.time !== 'auto';
         sceneLabel.textContent = label + (custom ? ' · picked' : '');
         sceneBtn.setAttribute('aria-label', 'Scene: ' + label + (custom ? ' (picked)' : ' (automatic)') + '. Change scene');
         sceneBtn.title = 'Scene: ' + label;
@@ -166,6 +165,26 @@
     applyScene();
     // Morning turns to day, day to evening: re-check every few minutes.
     setInterval(applyScene, 5 * 60 * 1000);
+
+    // Greeting, by the visitor's own clock.
+    var hour = new Date().getHours();
+    document.getElementById('greet-text').textContent =
+        hour >= 5 && hour < 12 ? "Good morning, hope you're doing well." :
+        hour >= 12 && hour < 17 ? "Good afternoon, hope you're doing well." :
+        hour >= 17 && hour < 21 ? "Good evening, hope you're doing well." :
+        "Hey there, night owl. Hope you're doing well.";
+
+    var greet = document.querySelector('.greet');
+    var wave = greet.querySelector('.wave');
+    function doWave() {
+        wave.classList.remove('waving');
+        void wave.offsetWidth; // restart the animation
+        wave.classList.add('waving');
+    }
+    wave.addEventListener('animationend', function () { wave.classList.remove('waving'); });
+    greet.addEventListener('mouseenter', doWave);
+    greet.addEventListener('click', doWave);
+    setTimeout(doWave, 1100);
 
     // Local time in Indore.
     var clock = document.getElementById('clock');

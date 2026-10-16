@@ -171,7 +171,7 @@ body::before {
 
 .scene-panel {
     position: absolute; right: 0; top: calc(100% + 10px); z-index: 20;
-    width: 360px; max-width: calc(100vw - 32px);
+    width: 300px; max-width: calc(100vw - 32px);
     padding: 16px; border: 1px solid var(--line); border-radius: 12px;
     background: var(--bg); box-shadow: 0 12px 32px rgba(0, 0, 0, .12);
     animation: panel-in .18s ease-out;
@@ -181,8 +181,7 @@ body::before {
 
 .scene-row + .scene-row { margin-top: 14px; }
 .scene-row-title { font-family: var(--mono); font-size: 12px; color: var(--muted); margin: 0 0 8px !important; }
-.chips-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
-.scene-row:nth-child(2) .chips-row { grid-template-columns: repeat(4, 1fr); }
+.chips-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
 
 .chip {
     display: flex; flex-direction: column; align-items: center; gap: 4px;
@@ -228,6 +227,21 @@ body::before {
 /* Avatar sits beside the name, so the row has no dead space */
 .id { display: flex; align-items: center; gap: 24px; }
 .id .hello { margin-bottom: 8px; }
+
+/* Greeting: a friendly line above the name. The hand waves on arrival and on every hover or tap. */
+.greet { font-size: 16px; color: var(--muted); margin: 0 0 22px !important; cursor: default; }
+.wave { display: inline-block; transform-origin: 75% 85%; }
+.wave.waving { animation: wave 1.4s ease-in-out 1; }
+@keyframes wave {
+    0%   { transform: rotate(0); }
+    12%  { transform: rotate(22deg); }
+    24%  { transform: rotate(-10deg); }
+    36%  { transform: rotate(22deg); }
+    48%  { transform: rotate(-6deg); }
+    60%  { transform: rotate(16deg); }
+    75%  { transform: rotate(0); }
+    100% { transform: rotate(0); }
+}
 
 /* "Right now" panel balancing the profile */
 .now { border-top: 1px solid var(--text); padding-top: 14px; }
@@ -306,6 +320,102 @@ a.section-meta:hover, .section-meta a:hover { color: var(--text); }
 
 .tiles-4 { grid-template-columns: repeat(2, 1fr); }
 .tiles-2 { grid-template-columns: repeat(2, 1fr); }
+.tiles-3 { grid-template-columns: repeat(3, 1fr); }
+
+/* Off the clock */
+.big-word { font-size: 30px !important; letter-spacing: -0.025em; line-height: 1.1; }
+.eq { display: inline-flex; align-items: flex-end; gap: 2px; height: 10px; margin-left: 6px; vertical-align: -1px; }
+.eq i { width: 2px; height: 100%; background: var(--live); border-radius: 1px; transform-origin: bottom; animation: eq 1.1s ease-in-out infinite; }
+.eq i:nth-child(2) { animation-duration: .8s; animation-delay: -.3s; }
+.eq i:nth-child(3) { animation-duration: 1.3s; animation-delay: -.6s; }
+.eq i:nth-child(4) { animation-duration: .95s; animation-delay: -.15s; }
+@keyframes eq { 0%, 100% { transform: scaleY(.3); } 50% { transform: scaleY(1); } }
+
+#life .tile { position: relative; overflow: hidden; }
+
+/* Rap: headphones that bob to the beat, notes drifting up, the equalizer kicking in */
+.rap-art { position: absolute; top: 18px; right: 20px; width: 44px; height: 44px; color: var(--muted); }
+.phones { width: 44px; height: 44px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: color .3s ease; }
+.phones rect { fill: var(--bg); transition: fill .3s ease; }
+.note { position: absolute; left: 50%; top: 2px; font-size: 17px; font-weight: 600; line-height: 1; color: var(--live); opacity: 0; pointer-events: none; }
+.tile-rap:hover .rap-art { color: var(--text); }
+.tile-rap:hover .phones { animation: bob .48s ease-in-out infinite; }
+.tile-rap:hover .phones rect { fill: var(--live); }
+.tile-rap:hover .note { animation: note-up 1.5s ease-out infinite; }
+.tile-rap:hover .n2 { animation-delay: .5s; }
+.tile-rap:hover .n3 { animation-delay: 1s; }
+@keyframes bob {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    25% { transform: translateY(-2px) rotate(-4deg); }
+    50% { transform: translateY(0) rotate(0); }
+    75% { transform: translateY(-2px) rotate(4deg); }
+}
+@keyframes note-up {
+    0%   { opacity: 0; transform: translate(-50%, 6px) rotate(0); }
+    20%  { opacity: 1; }
+    100% { opacity: 0; transform: translate(calc(-50% + var(--dx, -14px)), -30px) rotate(-12deg); }
+}
+.n2 { --dx: 12px; }
+.n3 { --dx: -4px; }
+.tile-rap:hover .eq { height: 14px; }
+.tile-rap:hover .eq i { animation-duration: .5s; }
+.tile-rap:hover .eq i:nth-child(2) { animation-duration: .36s; }
+.tile-rap:hover .eq i:nth-child(3) { animation-duration: .58s; }
+.tile-rap:hover .eq i:nth-child(4) { animation-duration: .42s; }
+
+/* Cricket: a red ball bowled across the tile; it pitches once and carries through */
+.ball {
+    position: absolute; left: -20px; bottom: 22px; width: 13px; height: 13px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #e8665c, #a8231b 65%, #7d1712);
+    opacity: 0; pointer-events: none;
+}
+.ball::after {
+    content: ""; position: absolute; left: 50%; top: 1px; bottom: 1px; width: 0;
+    border-left: 1px dashed rgba(255, 255, 255, .75); transform: translateX(-50%) rotate(22deg);
+}
+.tile-cricket:hover .ball { animation: bowl 2.2s forwards; }
+@keyframes bowl {
+    0%   { opacity: 1; left: -20px; transform: translateY(-58px) rotate(0); animation-timing-function: linear; }
+    30%  { left: 42%; transform: translateY(0) rotate(300deg); animation-timing-function: linear; }       /* pitches */
+    55%  { left: calc(100% - 58px); transform: translateY(-4px) rotate(560deg); animation-timing-function: cubic-bezier(.15, .75, .3, 1); } /* meets the bat */
+    92%  { opacity: 1; }
+    100% { opacity: 0; left: 16%; transform: translateY(-190px) rotate(1180deg); }                        /* lofted back over the bowler */
+}
+
+/* The bat waits in its backlift, comes down as the ball arrives, and follows through */
+.bat {
+    position: absolute; right: 40px; bottom: 8px; width: 13px; height: 44px;
+    transform-origin: 50% 3px; transform: rotate(-65deg); opacity: 0; pointer-events: none;
+}
+.bat .grip { fill: #3b3b3a; }
+.bat .blade { fill: #dcb57f; stroke: #a7824f; stroke-width: 1; }
+.bat .spine { stroke: #b8925c; stroke-width: 1.2; stroke-linecap: round; }
+.tile-cricket:hover .bat { animation: swing 2.2s forwards; }
+@keyframes swing {
+    0%   { opacity: 0; transform: rotate(-65deg); }
+    10%  { opacity: 1; transform: rotate(-65deg); }
+    46%  { transform: rotate(-78deg); animation-timing-function: cubic-bezier(.6, 0, .9, .5); } /* a touch more backlift, then down */
+    55%  { transform: rotate(4deg); animation-timing-function: cubic-bezier(.2, .7, .3, 1); }    /* contact */
+    72%  { transform: rotate(82deg); }                                                          /* follow-through */
+    100% { opacity: 1; transform: rotate(82deg); }
+}
+
+/* A small "crack" ring at the moment of contact */
+.impact {
+    position: absolute; right: 41px; bottom: 15px; width: 20px; height: 20px; border-radius: 50%;
+    border: 2px solid var(--live); opacity: 0; transform: scale(.2); pointer-events: none;
+}
+.tile-cricket:hover .impact { animation: crack 2.2s forwards; }
+@keyframes crack {
+    0%, 54% { opacity: 0; transform: scale(.2); }
+    56%     { opacity: .9; transform: scale(.6); }
+    72%     { opacity: 0; transform: scale(1.8); }
+    100%    { opacity: 0; transform: scale(1.8); }
+}
+
+/* Perseverance: progress that takes its time */
+.grind { display: block; width: 0; height: 2px; margin: 10px 0 12px; background: var(--text); transition: width 2.8s cubic-bezier(.25, .6, .3, 1); }
+.tile-word:hover .grind { width: 100%; }
 
 /* Writing tiles are whole links */
 .article { color: inherit; }
@@ -490,7 +600,8 @@ a.section-meta:hover, .section-meta a:hover { color: var(--text); }
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .js .rise { opacity: 1; transform: none; }
-    .caret, .pip::after, .marquee-track, body::before, .scene-panel { animation: none !important; }
+    .caret, .pip::after, .marquee-track, body::before, .scene-panel, .wave, .eq i, .phones, .note, .ball, .bat, .impact { animation: none !important; }
+    .grind { transition: none; }
     .sky { display: none; }
     a, .btn, .tile, .product-media img, .resume-preview img, .go::after, .scene-btn, .chip, .article .read { transition: none; }
 }
@@ -531,7 +642,7 @@ a.section-meta:hover, .section-meta a:hover { color: var(--text); }
     .section { padding-top: 64px; }
     .section-head { flex-direction: column; gap: 4px; }
 
-    .tiles, .tiles-2, .tiles-4 { grid-template-columns: 1fr; }
+    .tiles, .tiles-2, .tiles-3, .tiles-4 { grid-template-columns: 1fr; }
     .tile { padding: 20px; }
 
     .media-wide { padding: 16px; }
