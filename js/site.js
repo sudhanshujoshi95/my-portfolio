@@ -29,7 +29,7 @@
         });
         var label = s.season + ' ' + s.time;
         var custom = s.pick.time !== 'auto';
-        sceneLabel.textContent = label + (custom ? ' · picked' : '');
+        if (sceneLabel) sceneLabel.textContent = label + (custom ? ' · picked' : '');
         sceneBtn.setAttribute('aria-label', 'Scene: ' + label + (custom ? ' (picked)' : ' (automatic)') + '. Change scene');
         sceneBtn.title = 'Scene: ' + label;
         sky.refresh();
@@ -166,36 +166,123 @@
     // Morning turns to day, day to evening: re-check every few minutes.
     setInterval(applyScene, 5 * 60 * 1000);
 
-    // Greeting, by the visitor's own clock.
-    var hour = new Date().getHours();
-    document.getElementById('greet-text').textContent =
-        hour >= 5 && hour < 12 ? "Good morning, hope you're doing well." :
-        hour >= 12 && hour < 17 ? "Good afternoon, hope you're doing well." :
-        hour >= 17 && hour < 21 ? "Good evening, hope you're doing well." :
-        "Hey there, night owl. Hope you're doing well.";
-
-    var greet = document.querySelector('.greet');
-    var wave = greet.querySelector('.wave');
-    function doWave() {
-        wave.classList.remove('waving');
-        void wave.offsetWidth; // restart the animation
-        wave.classList.add('waving');
+    // Case study chart: grow the bars when they scroll into view.
+    var charts = document.querySelectorAll('.cs-chart');
+    if (charts.length && 'IntersectionObserver' in window) {
+        var chartObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) { e.target.classList.add('in'); chartObserver.unobserve(e.target); }
+            });
+        }, { threshold: 0.4 });
+        charts.forEach(function (c) { chartObserver.observe(c); });
+    } else {
+        charts.forEach(function (c) { c.classList.add('in'); });
     }
-    wave.addEventListener('animationend', function () { wave.classList.remove('waving'); });
-    greet.addEventListener('mouseenter', doWave);
-    greet.addEventListener('click', doWave);
-    setTimeout(doWave, 1100);
+
+    // Greeting, by the visitor's own clock.
+    var greet = document.querySelector('.greet');
+    if (greet) {
+        var hour = new Date().getHours();
+        document.getElementById('greet-text').textContent =
+            hour >= 5 && hour < 12 ? "Good morning, hope you're doing well." :
+            hour >= 12 && hour < 17 ? "Good afternoon, hope you're doing well." :
+            hour >= 17 && hour < 21 ? "Good evening, hope you're doing well." :
+            "Hey there, night owl. Hope you're doing well.";
+
+        var wave = greet.querySelector('.wave');
+        var doWave = function () {
+            wave.classList.remove('waving');
+            void wave.offsetWidth; // restart the animation
+            wave.classList.add('waving');
+        };
+        wave.addEventListener('animationend', function () { wave.classList.remove('waving'); });
+        greet.addEventListener('mouseenter', doWave);
+        greet.addEventListener('click', doWave);
+        setTimeout(doWave, 1100);
+    }
 
     // Local time in Indore.
     var clock = document.getElementById('clock');
-    var fmt = new Intl.DateTimeFormat('en-GB', {
-        hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Kolkata'
-    });
-    function tick() { clock.textContent = fmt.format(new Date()) + ' IST'; }
-    tick();
-    setInterval(tick, 30000);
+    if (clock) {
+        var fmt = new Intl.DateTimeFormat('en-GB', {
+            hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Kolkata'
+        });
+        var tick = function () { clock.textContent = fmt.format(new Date()) + ' IST'; };
+        tick();
+        setInterval(tick, 30000);
+    }
 
-    document.getElementById('year').textContent = new Date().getFullYear();
+    var year = document.getElementById('year');
+    if (year) year.textContent = new Date().getFullYear();
+
+    // Copy email: many visitors have no mail app set up, so copying beats mailto.
+    document.querySelectorAll('.copy-email').forEach(function (btn) {
+        var label = btn.textContent;
+        var timer = 0;
+        btn.addEventListener('click', function () {
+            var email = btn.getAttribute('data-email');
+            var done = function () {
+                btn.textContent = 'Copied ✓';
+                btn.classList.add('copied');
+                clearTimeout(timer);
+                timer = setTimeout(function () { btn.textContent = label; btn.classList.remove('copied'); }, 1800);
+            };
+            // If the browser refuses both ways, select the address so ⌘C / Ctrl+C still works.
+            var manual = function () {
+                var link = btn.parentNode.querySelector('.email');
+                if (link) {
+                    var range = document.createRange();
+                    range.selectNodeContents(link);
+                    var sel = window.getSelection();
+                    sel.removeAllRanges();
+                    sel.addRange(range);
+                }
+                btn.textContent = /Mac|iPhone|iPad/.test(navigator.platform) ? 'Press ⌘C' : 'Press Ctrl+C';
+                clearTimeout(timer);
+                timer = setTimeout(function () { btn.textContent = label; }, 2500);
+            };
+            var fallback = function () { fallbackCopy(email) ? done() : manual(); };
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(email).then(done, fallback);
+            } else {
+                fallback();
+            }
+        });
+    });
+    function fallbackCopy(text) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+        return ok;
+    }
+
+    // A hello for anyone who opens DevTools.
+    if (window.console && !window.__sjHello) {
+        window.__sjHello = true;
+        var banner = [
+            "     _ _           _ _     _     ",
+            " ___(_) |__  _   _(_) | __| |___ ",
+            "/ __| | '_ \\| | | | | |/ _` / __|",
+            "\\__ \\ | |_) | |_| | | | (_| \\__ \\",
+            "|___// |_.__/ \\__,_|_|_|\\__,_|___/",
+            "   |__/                           "
+        ].join('\n');
+        console.log('%c' + banner, 'font-family: monospace; color: #2f9e5b;');
+        console.log(
+            '%cLooking under the hood? Nice.%c\n' +
+            'Hand-written HTML, CSS and vanilla JS. No framework, no build step.\n' +
+            'Say hi: sudhanshujoshi95@gmail.com',
+            'font: 600 14px system-ui, sans-serif;',
+            'font: 13px system-ui, sans-serif; color: #686864;'
+        );
+    }
 
     // LinkedIn teasers: a slow marquee built from data/linkedin.json.
     var feed = document.getElementById('li-feed');

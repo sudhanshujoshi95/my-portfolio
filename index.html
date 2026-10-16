@@ -19,42 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
     <link rel="stylesheet" href="css/site.css">
-    <script>
-        // Scene = time of day x season. Season always follows the Indian calendar; time of day is "auto" (visitor's clock) or picked.
-        // Runs before paint so the right colours show from the first frame.
-        window.sjScene = function () {
-            var now = new Date(), h = now.getHours();
-            var m = Number(new Intl.DateTimeFormat('en-US', { month: 'numeric', timeZone: 'Asia/Kolkata' }).format(now));
-            var auto = {
-                time: h >= 5 && h < 11 ? 'morning' : h >= 11 && h < 17 ? 'day' : h >= 17 && h < 20 ? 'evening' : 'night',
-                season: m >= 3 && m <= 6 ? 'summer' : m >= 7 && m <= 9 ? 'monsoon' : 'winter'
-            };
-            var pick = { time: 'auto', season: 'auto' };
-            try {
-                pick.time = localStorage.getItem('scene-time') || 'auto';
-            } catch (e) {}
-            // Preview any scene with ?scene=monsoon-evening
-            var q = location.search.match(/[?&]scene=(winter|summer|monsoon)-(morning|day|evening|night)\b/);
-            if (q) { pick.season = q[1]; pick.time = q[2]; }
-            if (!/^(morning|day|evening|night)$/.test(pick.time)) pick.time = 'auto';
-            if (!/^(winter|summer|monsoon)$/.test(pick.season)) pick.season = 'auto';
-            return {
-                time: pick.time === 'auto' ? auto.time : pick.time,
-                season: pick.season === 'auto' ? auto.season : pick.season,
-                pick: pick
-            };
-        };
-        window.sjApply = function () {
-            var root = document.documentElement, s = window.sjScene();
-            root.setAttribute('data-time', s.time);
-            root.setAttribute('data-season', s.season);
-            root.setAttribute('data-theme', s.time === 'evening' || s.time === 'night' ? 'dark' : 'light');
-            return s;
-        };
-        window.sjApply();
-        document.documentElement.classList.add('js');
-        try { localStorage.removeItem('theme'); localStorage.removeItem('scene-season'); } catch (e) {} // retired settings
-    </script>
+    <script src="js/scene.js"></script>
 </head>
 
 <body>
@@ -220,7 +185,10 @@
                             <li>Idempotency keys on writes, plus role-based access for admins, managers and members.</li>
                         </ul>
                         <p class="tech">React 19 · TypeScript · Node / Express · MongoDB · Redis + BullMQ</p>
-                        <p class="links"><a class="go" href="https://standuppulse.sjbuilds.dev/" target="_blank" rel="noopener">Visit standuppulse.sjbuilds.dev</a></p>
+                        <p class="links">
+                            <a class="cs-link" href="work/standuppulse.html">Read the case study →</a>
+                            <a class="go" href="https://standuppulse.sjbuilds.dev/" target="_blank" rel="noopener">Visit standuppulse.sjbuilds.dev</a>
+                        </p>
                     </div>
                     <a class="product-media media-wide" href="https://standuppulse.sjbuilds.dev/" target="_blank" rel="noopener">
                         <img src="img/work/standuppulse.jpg" alt="StandupPulse: turn daily standups into a clear team story" width="1200" height="630" loading="lazy">
@@ -418,7 +386,10 @@
                     <p class="muted">Questions about a product or an article, or a project you'd like to build together: email gets the fastest reply.</p>
                 </div>
                 <div class="contact-links">
-                    <a class="email" href="mailto:sudhanshujoshi95@gmail.com">sudhanshujoshi95@gmail.com</a>
+                    <div class="email-row">
+                        <a class="email" href="mailto:sudhanshujoshi95@gmail.com">sudhanshujoshi95@gmail.com</a>
+                        <button type="button" class="copy-email" data-email="sudhanshujoshi95@gmail.com" aria-live="polite">Copy</button>
+                    </div>
                     <ul class="socials">
                         <li><a href="https://github.com/sudhanshujoshi95" target="_blank" rel="noopener">GitHub</a></li>
                         <li><a href="https://www.linkedin.com/in/sudhanshu-joshi-35000421a/" target="_blank" rel="noopener">LinkedIn</a></li>
