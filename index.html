@@ -1,882 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head prefix="og: http://ogp.me/ns#">
-    <title>Sudhanshu Joshi | Software Engineer &amp; Engineering Lead</title>
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="Sudhanshu Joshi, Joshi, Sudhanshu, Medicaps university, Medicaps, Lead Technical Engineer, Flutter developer, React developer, engineering lead, healthcare technology, Medoc Health, software engineer, mobile developer, front-end, web, website, computer, software, developer, engineer" />
-    <meta name="author" content="Sudhanshu Joshi" />
-    <meta name="description" content="Software Engineer and Engineering Lead building healthcare technology. Flutter, React, real-time systems, and AI-assisted development." />
-    <meta property="og:description" content="Software Engineer and Engineering Lead building healthcare technology. Flutter, React, and real-time systems." />
-    <meta property="og:type" content="website" />
-    <link rel="shortcut icon" href="img/letter-s.png">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <link rel="stylesheet" type="text/css" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic'>
-    <link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100'>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sudhanshu Joshi — sjbuilds</title>
+    <meta name="author" content="Sudhanshu Joshi">
+    <meta name="description" content="Sudhanshu Joshi (sjbuilds) — developer and engineer. Lead Technical Engineer at Medoc Health, and the builder of StandupPulse and Droplet.">
+    <link rel="canonical" href="https://sjbuilds.dev/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sjbuilds.dev/">
+    <meta property="og:title" content="Sudhanshu Joshi — sjbuilds">
+    <meta property="og:description" content="Developer and engineer. Lead Technical Engineer at Medoc Health, and the builder of StandupPulse and Droplet.">
+    <meta property="og:image" content="https://sjbuilds.dev/img/avatar.jpg">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="css/site.css">
+    <script>
+        try {
+            var t = localStorage.getItem('theme');
+            if (t) document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+        document.documentElement.classList.add('js');
+    </script>
 </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom" data-offset="100">
-    <div id="content">
-        <!-- Navigation -->
-        <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header page-scroll">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                        <i class="fa fa-2x fa-bars"></i>
-                    </button>
-                    <a class="navbar-brand page-scroll">
-                        <img src="img/letter-s (1).png" />Sudhanshu Joshi</a>
-                </div>
-                <div class="collapse navbar-collapse navbar-main-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="hidden">
-                            <a class="page-scroll" href="#page-top"></a>
-                        </li>
-                        <li><a class="page-scroll" href="#about">About</a></li>
-                        <li><a class="page-scroll" href="#services">Focus</a></li>
-                        <li><a class="page-scroll" href="#experience">Experience</a></li>
-                        <li><a class="page-scroll" href="#portfolio">Work</a></li>
-                        <li><a class="page-scroll" href="#contact">Contact</a></li>
+<body>
+    <div class="page">
+
+        <header class="top">
+            <a class="mark" href="/" aria-label="sjbuilds, home">sjbuilds<span class="caret" aria-hidden="true">_</span></a>
+            <nav class="top-nav" aria-label="Sections">
+                <a href="#work">Work</a>
+                <a href="#products">Products</a>
+                <a href="#projects">Projects</a>
+                <a href="#writing">Writing</a>
+                <a href="#resume">Resume</a>
+                <button id="theme" class="theme" type="button" aria-label="Switch colour theme">
+                    <span class="theme-dot" aria-hidden="true"></span>
+                </button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Profile -->
+            <section class="profile rise">
+                <div class="profile-text">
+                    <div class="id">
+                        <img class="avatar" src="img/avatar.jpg" alt="Sudhanshu Joshi" width="240" height="240" fetchpriority="high">
+                        <div>
+                            <p class="hello">Developer &amp; engineer · Indore, India · <span id="clock">IST</span></p>
+                            <h1>Sudhanshu Joshi</h1>
+                        </div>
+                    </div>
+                    <p class="headline">Lead Technical Engineer at <a href="https://medochealth.in/" target="_blank" rel="noopener">Medoc Health</a>. I build software that hospitals run on, and ship my own products as <strong>sjbuilds</strong>.</p>
+                    <p class="bio">
+                        Four years ago I joined Medoc as a Flutter intern. Today I lead 25 engineers across mobile, backend and AI/ML,
+                        and I still write code every day, mostly in Flutter, React, Node and real-time systems. Outside work I've shipped
+                        an LLM-backed SaaS and an app on Google Play, and I write long-form explainers about how everyday systems actually work.
+                    </p>
+                    <div class="actions">
+                        <a class="btn btn-solid" href="resume.html">View resume</a>
+                        <a class="btn" href="mailto:sudhanshujoshi95@gmail.com">Email me</a>
+                    </div>
+                    <ul class="socials">
+                        <li><a href="https://github.com/sudhanshujoshi95" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/sudhanshu-joshi-35000421a/" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="https://medium.com/@sudhanshujoshi95" target="_blank" rel="noopener">Medium</a></li>
+                        <li><a href="https://twitter.com/sudhanshu_j95" target="_blank" rel="noopener">X</a></li>
                     </ul>
                 </div>
-            </div>
-        </nav>
-        <!-- Section: Introduction -->
-        <section id="intro" class="intro text-center">
-            <div class="overlay">
-                <div class="intro-content">
-                    <h1 class="animated fadeInDown delay-05s">Hi, I'm Sudhanshu Joshi</h1>
-                    <p class="subtitle animated fadeInUp delay-05s">Software Engineer &amp; Engineering Lead — Flutter, React &amp; Real-Time Systems</p>
-                    <a class="fa fa-angle-down page-scroll" href="#about"></a>
-                </div>
-            </div>
-        </section>
-        <!-- Section: About -->
-        <section id="about" class="text-center">
-            <div class="overlay">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 wp1">
-                            <h2>A Little Bit About Me</h2>
-                            <img src="img/Prfl_img.jpg" id="prof-pic" />
-                            <p>
-                                Hey! I'm Sudhanshu — a software engineer who leads mobile and full-stack engineering for a connected hospital technology platform at
-                                <a href="https://medochealth.in/" target="_blank">Medoc Health</a>. I graduated from
-                                <a href="https://www.medicaps.ac.in/" target="_blank">Medicaps University</a> with a B.Tech in Computer Science and Engineering, and I've grown from a Flutter intern into leading a 25-engineer organization spanning mobile, backend, and AI/ML — while still staying hands-on enough to catch the details that make software feel genuinely well-built.
-                                <br>
-                                <br> When I'm not on the computer, I love watching and playing cricket, and listening to music (mostly hip-hop — {KR$} it's okay if you don't know the artist).
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row text-center">
-                        <div id="tl-dr">
-                            <h3>Self Proclamations:</h3>
-                            <div class="tldr-proc">
-                                <div class="tldr-icon" id="tldr-keyboard"><i class="fa fa-keyboard-o"></i></div>
-                                <h5>Engineering Lead</h5>
-                            </div>
-                            <div class="tldr-proc">
-                                <div class="tldr-icon"><i class="fa fa-pencil"></i></div>
-                                <h5>CP Enthusiast</h5>
-                            </div>
-                            <div class="tldr-proc">
-                                <div class="tldr-icon"><i class="fa fa-ball">
-                                    <img src="img/cricket.png" alt="" style="width: 40px; height: 40px;">
-                                </i></div>
-                                <h5>Cricket</h5>
-                            </div>
-                            <div ></div>
-                            </div>
-                        </div>
-                    </div>
-        </section>
-        <!-- /Section: About -->
-        <!-- Section: Services (Focus) -->
-        <section id="services" class="text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2>What I Do</h2>
-                        <div class="spacer-10"></div>
-                        <div class="col-md-4 wp2">
-                            <div class="icon"><i class="fa fa-laptop"></i></div>
-                            <h3>Design Systems</h3>
-                            <p>I care about consistency and craft at scale. At Medoc Health I introduced shared component style guides and design-system standards across four product surfaces built by different engineers — the difference between an app that looks designed and one that just looks assembled.
-                            </p>
-                        </div>
-                        <div class="col-md-4 wp2 delay-025s">
-                            <div class="icon"><i class="fa fa-code"></i></div>
-                            <h3>Mobile &amp; Full-Stack Development</h3>
-                            <p>I build production Flutter applications and React web interfaces — from real-time systems (WebSocket, WebRTC/LiveKit video) to REST API integration and backend collaboration on schema design. I also use AI coding tools daily as part of how I write, refactor, and debug code.</p>
-                        </div>
-                        <div class="col-md-4 wp2 delay-05s">
-                            <div class="icon"><i class="fa fa-code"></i></div>
-                            <h3>Competitive Coding</h3>
-                            <p>Competitive programming built my foundation in problem-solving and algorithmic thinking. 200+ problems solved on <a href="https://leetcode.com/u/sudhanshujoshi95/" target="_blank">LeetCode</a> (rating 1462), 5 stars on <a href="https://www.hackerrank.com/profile/sudhanshujoshi95" target="_blank">HackerRank</a> in C and C++, and 3 stars on CodeChef.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Section: Experience -->
-        <section id="experience">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="col-md-10 col-md-offset-1 text-center wp3">
-                            <h2>Experience</h2>
-                            <p>I've been building software professionally for close to four years now, growing from a Flutter intern into an engineering lead. Along the way I've picked up React, Node.js/Express, real-time systems (WebSocket, WebRTC), database and API design, and — more recently — AI-assisted development workflows, backed by Google's AI Essentials Specialization. I'm still practicing competitive programming, same as day one.</p>
-                        </div>
-                        <div class="col-sm-offset-1 col-xs-12 col-sm-6 col-md-6 skills-section wp3">
-                            <h3>Some technologies I work with:</h3>
-                            <div class="row">
-                                <div class="col-xs-3 col-sm-2 col-md-2 skill-icon"><img class="img-responsive" src="img/skills/html.png" id="html"></div>
-                                <div class="col-xs-3 col-sm-2 col-md-2 skill-icon"><img class="img-responsive" src="img/skills/css.png" id="css"></div>
-                                <div class="col-xs-3 col-sm-2 col-md-2 skill-icon"><img class="img-responsive" src="img/skills/js.png" id="js"></div>
-                                <div class="col-xs-3 col-sm-2 col-md-2 skill-icon"><img class="img-responsive" src="img/skills/bootstrap.png" id="bootstrap"></div>
-                                <div class="col-xs-3 col-sm-2 col-md-2 skill-icon"><img class="img-responsive" src="img/skills/github.png"></div>
-                                <div class="col-xs-3 col-sm-2 col-md-2 skill-icon"><img class="img-responsive" src="img/skills/cpp.png"></div>
-                                <div class="col-xs-3 col-sm-2 col-md-2 skill-icon"><img class="img-responsive" src="img/skills/cloudserver.png"></div>
-                                <div class="col-xs-3 col-sm-2 col-md-2 skill-icon"><img class="img-responsive" src="img/skills/flutter.png"></div>
-                                <div class="col-xs-3 col-sm-2 col-md-2 skill-icon"><img class="img-responsive" src="img/skills/mysql.png"></div>
-                                <div class="col-xs-3 col-sm-2 col-md-2 skill-icon"><img class="img-responsive" src="img/skills/figma.png"></div>
-                                <!-- TODO: swap in icons for React, Node.js, and TypeScript if you have them — see notes -->
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-offset-1 col-sm-4 col-md-offset-1 col-md-3 employment wp3">
-                            <div class="text-center places-worked">
-                                <h3>I'm a Lead Technical Engineer at <a href="https://medochealth.in/">Medoc Health</a>, leading a 25-engineer team.</h3>
-                                <a href="https://medochealth.in/" target="_blank">
-                                    <img src="img/logo.png"/>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /col-->
-                </div>
-                <!-- /row -->
-            </div>
-            <!-- Container-->
-        </section>
-        <!-- /Section: Experience -->
-        <!-- Section: Resume -->
-        <section id="resume">
-            <div class="text-center">
-                <div class="overlay">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h2>Check out my résumé!</h2>
-                                <div id="resume-button">
-                                    <!-- TODO: replace img/MyCV.pdf with your current resume file -->
-                                    <a class="resume-btn wp4" href="img/MyCV.pdf" target="_blank">Grab A Copy</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- row -->
-                    </div>
-                    <!-- container -->
-                </div>
-            </div>
-        </section>
-        <!-- /Section: Resume -->
-        <!-- Section: Portfolio -->
-        <section id="portfolio">
-            <div class="container">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">My Projects, Certifications and Achievements</h2>
-                    <h5 class="coming-soon">"so much more to learn...."</h5>
+
+                <aside class="now" aria-label="Right now">
+                    <p class="now-title">Right now</p>
+                    <dl>
+                        <div><dt>Leading</dt><dd>Engineering at <a href="https://medochealth.in/" target="_blank" rel="noopener">Medoc Health</a></dd></div>
+                        <div><dt>Building</dt><dd><a href="https://standuppulse.sjbuilds.dev/" target="_blank" rel="noopener">StandupPulse</a>, a standup tracker with an LLM-written team timeline</dd></div>
+                        <div><dt>Shipped</dt><dd><a href="https://play.google.com/store/apps/details?id=com.sjbuilds.droplet" target="_blank" rel="noopener">Droplet</a>, live on Google Play</dd></div>
+                        <div><dt>Latest post</dt><dd><a href="https://medium.com/@sudhanshujoshi95/the-payment-went-through-the-app-said-it-failed-both-were-true-b6a34a1bba49" target="_blank" rel="noopener">The Payment Went Through. The App Said It Failed.</a></dd></div>
+                        <div><dt>Stack</dt><dd>Flutter · React · TypeScript · Node · WebRTC</dd></div>
+                    </dl>
+                </aside>
+            </section>
+
+            <dl class="facts rise">
+                <div><dt>4 yrs</dt><dd>at Medoc, intern to lead</dd></div>
+                <div><dt>25</dt><dd>engineers across mobile, backend and AI/ML</dd></div>
+                <div><dt>2</dt><dd>products shipped under sjbuilds</dd></div>
+                <div><dt>4</dt><dd>products on one shared design system</dd></div>
+            </dl>
+
+            <!-- Work -->
+            <section class="section rise" id="work">
+                <div class="section-head">
+                    <h2>Work</h2>
+                    <span class="section-meta">Medoc Health · 2022 — now</span>
                 </div>
 
-                <div class="row portfolio-row">
-                    <h2>Achievements</h2>
-                    <div class="portfolio-item-wrapper wp5">
-                        <div class="portfolio-item" data-toggle="modal" href="#medocHealth">
-                            <div class="portfolio-overlay"></div>
-                            <div class="links">
-                                <a class="image-link"><i class="fa fa-search-plus"></i></a>
-                            </div>
-                            <img src="img/Medoc Offer Letter-1.png" alt="image" style="height: 300px;">
-                            <div class="portfolio-info">
-                                <h3>View</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item-wrapper wp5">
-                        <div class="portfolio-item" data-toggle="modal" href="#oasisInfobyte">
-                            <div class="portfolio-overlay"></div>
-                            <div class="links">
-                                <a class="image-link"><i class="fa fa-search-plus"></i></a>
-                            </div>
-                            <img src="img/Oasis Infobyte Web Development Internship Completion-1.png" alt="image" style="height: 300px;">
-                            <div class="portfolio-info">
-                                <h3>View</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item-wrapper wp5">
-                        <div class="portfolio-item" data-toggle="modal" href="#muieeSelectionLetter">
-                            <div class="portfolio-overlay"></div>
-                            <div class="links">
-                                <a class="image-link"><i class="fa fa-search-plus"></i></a>
-                            </div>
-                            <img src="img/MUIEEE_Selection_Letter_Sudhanshu_Joshi-1.png" alt="image" style="height: 300px;">
-                            <div class="portfolio-info">
-                                <h3>View</h3>
-                            </div>
-                        </div>
+                <div class="work">
+                    <div class="work-side">
+                        <h3>Lead Technical Engineer</h3>
+                        <p class="muted"><a href="https://medochealth.in/" target="_blank" rel="noopener">Medoc Health</a>, healthcare technology</p>
+                        <ol class="path">
+                            <li><span class="path-when">Oct 2022</span><span>Joined as Flutter Developer Intern</span></li>
+                            <li><span class="path-when">Now</span><span>Leading 25 engineers across mobile, backend and AI/ML</span></li>
+                        </ol>
+                        <p class="muted small">
+                            Medoc builds a connected platform for hospitals in India, from patient apps to hospital operations.
+                            Here is the part I own.
+                        </p>
                     </div>
 
-                    <h2>Projects</h2>
-                    <!--
-                        TODO: This section still shows your college-era projects (Flappy Bird, temperature
-                        converter, landing page, etc). Consider replacing these with your real professional
-                        work — ME (patient app with LiveKit video + WebSocket alerts), Hospital+ (multi-module
-                        hospital ops platform), and the component style guide system you built. I can't
-                        generate screenshots/demo videos of these since they're proprietary Medoc Health
-                        products, but a few product screenshots (with any sensitive data blurred/removed,
-                        and only if your employer is fine with it) or a short case-study writeup for each
-                        would replace these placeholder project cards well. Leaving your original entries
-                        below untouched for now so you don't lose them.
-                    -->
+                    <div class="tiles">
+                        <article class="tile">
+                            <p class="tile-kind">Patient app</p>
+                            <h4>ME</h4>
+                            <p>A portable, lifelong health record for patients. I built its real-time layer: video consultations and live alerts that reach patients and care teams as things happen.</p>
+                            <p class="tech">Flutter · LiveKit / WebRTC · WebSocket</p>
+                        </article>
+                        <article class="tile">
+                            <p class="tile-kind">Hospital operations</p>
+                            <h4>Multi-module ops platform</h4>
+                            <p>The platform staff use to run a hospital day to day. I work across its Flutter and React clients and design the API contracts and schemas with the backend team.</p>
+                            <p class="tech">React · Flutter · Node.js · API design</p>
+                        </article>
+                        <article class="tile">
+                            <p class="tile-kind">Design system</p>
+                            <h4>One component language</h4>
+                            <p>Four products built by different engineers now share component standards and style guides, so they look and behave like one product.</p>
+                            <p class="tech">Component libraries · Style guides</p>
+                        </article>
+                        <article class="tile">
+                            <p class="tile-kind">Leadership</p>
+                            <h4>Running the engineering org</h4>
+                            <p>I set technical direction, run code review and PR workflows, and have made AI-assisted development part of how the team writes and debugs code.</p>
+                            <p class="tech">25 engineers · 3 disciplines</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
 
-                    <div class="portfolio-item-wrapper wp5">
-                        <div class="portfolio-item" data-toggle="modal" href="#helpgeared">
-                            <div class="portfolio-overlay"></div>
-                            <div class="links">
-                                <a class="image-link"><i class="fa fa-search-plus"></i></a>
-                            </div>
-                            <video class="img-responsive img-centered" style="height:300px"> <source src="vdo/helpgeared.mp4" type="video/mp4"> </video>
-                            <div class="portfolio-info">
-                                <h3>Game</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item-wrapper wp5">
-                        <div class="portfolio-item" data-toggle="modal" href="#flappyBirdGame">
-                            <div class="portfolio-overlay"></div>
-                            <div class="links">
-                                <a class="image-link"><i class="fa fa-search-plus"></i></a>
-                            </div>
-                            <video class="img-responsive img-centered" style="height:300px"> <source src="vdo/Tutorial-Flappy Bird Gam.mp4" type="video/mp4"> </video>
-                            <div class="portfolio-info">
-                                <h3>Game</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item-wrapper wp5">
-                        <div class="portfolio-item" data-toggle="modal" href="#studentManagement">
-                            <div class="portfolio-overlay"></div>
-                            <div class="links">
-                                <a class="image-link"><i class="fa fa-search-plus"></i></a>
-                            </div>
-                            <video class="img-responsive img-centered" style="height:300px" autoplay> <source src="vdo/student_management.mp4" type="video/mp4"> </video>
-                            <div class="portfolio-info">
-                                <h3>C++ Project</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item-wrapper wp5">
-                        <div class="portfolio-item" data-toggle="modal" href="#landingPage">
-                            <div class="portfolio-overlay"></div>
-                            <div class="links">
-                                <a class="image-link"><i class="fa fa-search-plus"></i></a>
-                            </div>
-                            <video class="img-responsive img-centered" style="height:300px" autoplay> <source src="vdo/LandingPage.mp4" type="video/mp4"> Your browser does not support the video tag. </video>
-                            <div class="portfolio-info">
-                                <h3>Landing Page</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item-wrapper wp5">
-                        <div class="portfolio-item" data-toggle="modal" href="#temperatureConvertor">
-                            <div class="portfolio-overlay"></div>
-                            <div class="links">
-                                <a class="image-link"><i class="fa fa-search-plus"></i></a>
-                            </div>
-                            <video class="img-responsive img-centered" style="height: 300px;" autoplay> <source src="vdo/TemperatureConverterWebSite_Trim.mp4" type="video/mp4"> </video>
-                            <div class="portfolio-info">
-                                <h3>Website</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item-wrapper wp5">
-                        <div class="portfolio-item" data-toggle="modal" href="#calendarApp">
-                            <div class="portfolio-overlay"></div>
-                            <div class="links">
-                                <a class="image-link"><i class="fa fa-search-plus"></i></a>
-                            </div>
-                            <img src="img/flutter_calendar_app.png" style="height: 250px;"  alt="image">
-                            <div class="portfolio-info">
-                                <h3>Flutter-Calendar App</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item-wrapper wp5">
-                        <div class="portfolio-item" data-toggle="modal" href="#bmiCalculator">
-                            <div class="portfolio-overlay"></div>
-                            <div class="links">
-                                <a class="image-link"><i class="fa fa-search-plus"></i></a>
-                            </div>
-                            <img src="img/flutter_bmi_calculator.png" style="height: 250px;" alt="image">
-                            <div class="portfolio-info">
-                                <h3>Bmi Calculator App</h3>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Products -->
+            <section class="section rise" id="products">
+                <div class="section-head">
+                    <h2>Products</h2>
+                    <span class="section-meta">Built and shipped as sjbuilds</span>
+                </div>
 
-                    <h2>Certifications</h2>
+                <article class="product">
+                    <div class="product-text">
+                        <div class="product-title">
+                            <h3>StandupPulse</h3>
+                            <span class="status"><span class="pip"></span>Live</span>
+                        </div>
+                        <p class="one-liner">Turns daily standups into a clear record of what a team actually did.</p>
 
-                    <div class="portfolio-item-wrapper wp5">
-                        <div class="portfolio-item" data-toggle="modal" href="#googleAiEssentials">
-                            <div class="portfolio-overlay"></div>
-                            <div class="links">
-                                <a class="image-link"><i class="fa fa-search-plus"></i></a>
-                            </div>
-                            <!-- TODO: add a screenshot of your Google AI Essentials certificate at img/GoogleAIEssentials.png -->
-                            <img src="img/GoogleAIEssentials.png" alt="image">
-                            <div class="portfolio-info">
-                                <h3>Certificate</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item-wrapper wp5">
-                        <div class="portfolio-item" data-toggle="modal" href="#hackerRank">
-                            <div class="portfolio-overlay"></div>
-                            <div class="links">
-                                <a class="image-link"><i class="fa fa-search-plus"></i></a>
-                            </div>
-                            <img src="img/HackerRank.png" alt="image">
-                            <div class="portfolio-info">
-                                <h3>Certificate</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item-wrapper wp5">
-                        <div class="portfolio-item" data-toggle="modal" href="#frontendDev">
-                            <div class="portfolio-overlay"></div>
-                            <div class="links">
-                                <a class="image-link"><i class="fa fa-search-plus"></i></a>
-                            </div>
-                            <img src="img/Frontend Web Dev Perfect e-Learning.jpg" alt="image">
-                            <div class="portfolio-info">
-                                <h3>Certificate</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item-wrapper wp5">
-                        <div class="portfolio-item" data-toggle="modal" href="#mySql">
-                            <div class="portfolio-overlay"></div>
-                            <div class="links">
-                                <a class="image-link"><i class="fa fa-search-plus"></i></a>
-                            </div>
-                            <img src="img/My SQL Essential Training LinkedIn Learning.jpg" alt="image">
-                            <div class="portfolio-info">
-                                <h3>Certificate</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item-wrapper wp5 delay-025s">
-                        <div class="portfolio-item" data-toggle="modal" href="#Awscloud">
-                            <div class="portfolio-overlay"></div>
-                            <div class="links">
-                                <a class="image-link"><i class="fa fa-search-plus"></i></a>
-                            </div>
-                            <img src="img/AWS_Academy_Graduate___AWS_Academy_Cloud_Foundations_Badge20230529-28-kd9x2t_page-0001.jpg" alt="image">
-                            <div class="portfolio-info">
-                                <h3>Certificate</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-item-wrapper wp5">
-                        <div class="portfolio-item" data-toggle="modal" href="#gitAndGitHub">
-                            <div class="portfolio-overlay"></div>
-                            <div class="links">
-                                <a class="image-link"><i class="fa fa-search-plus"></i></a>
-                            </div>
-                            <img src="img/CertificateOfCompletion_Learning Git and GitHub_page-0001.jpg" alt="image">
-                            <div class="portfolio-info">
-                                <h3>Certificate</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Removed the Java 11 certificate card from the grid — Java isn't part of your
-                         current stack and keeping it visible could invite a question you'd rather not
-                         field. The modal markup is left below (unlinked) in case you want it back. -->
-                </div>
-            </div>
-        </section>
-        <!--************************** PORTFOLIO MODALS **************************-->
-        <!-- Medoc Health Offer Letter -->
-        <div class="modal fade" id="medocHealth" tabindex="-1" role="dialog" aria-labelledby="courseSourceModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Offer Letter</h4>
-                        <h6 class="modal-title-description">Medoc Health</h6>
-                    </div>
-                    <div class="modal-body">
+                        <h4>The idea</h4>
                         <p>
-                            <img class="img-responsive img-centered" src="img/Medoc Offer Letter-1.png" alt="">
+                            Once standups are scattered across Slack, memory and half-read messages, it gets hard to answer
+                            <em>"what actually happened this sprint?"</em>. StandupPulse keeps every update structured from day one.
+                            Yesterday's items carry over, so you add today's and flag any blocker in about ten seconds. Managers see who has
+                            submitted and who is stuck, and the Visualizer turns any date range into a narrated timeline of how the work unfolded.
                         </p>
-                        <p class="modal-description">I joined MedocHealth, a healthcare technology startup, as a Flutter developer intern in my second year of college. Since then I've grown into Lead Technical Engineer, now overseeing a 25-person engineering organization across mobile, backend, and AI/ML, building a connected hospital ecosystem used across 10+ live hospital deployments.</p>
-                        <p class="visit"><a href="https://medochealth.in" target="_blank" id="visit-btn">Visit Site</a> or <a href="https://www.linkedin.com/company/medochealth/" target="_blank" id="visit-btn">View LinkedIn</a></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Oasis Infobyte Internship Completion Certificate -->
-        <div class="modal fade" id="oasisInfobyte" tabindex="-1" role="dialog" aria-labelledby="fontipsumsModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Web-dev Internship</h4>
-                        <h6 class="modal-title-description">Completion Certificate</h6>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            <img class="img-responsive img-centered" src="img/Oasis Infobyte Web Development Internship Completion-1.png" alt="">
-                        </p>
-                        <p class="modal-description">An early web development internship where I built a landing page, a personal portfolio site, and a temperature converter — foundational reps that fed directly into my later frontend work.</p>
-                        <p class="visit"><a href="https://oasisinfobyte.com/" target="_blank" id="visit-btn">Visit Site</a> or <a href="https://www.linkedin.com/company/oasis-infobyte/" target="_blank" id="visit-btn">View LinkedIn</a></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- MU-IEEE CP Team Executive Member Offer Letter -->
-        <div class="modal fade" id="muieeSelectionLetter" tabindex="-1" role="dialog" aria-labelledby="fontipsumsModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Selection Letter</h4>
-                        <h6 class="modal-title-description">MUIEEE Student Branch</h6>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            <img class="img-responsive img-centered" src="img/MUIEEE_Selection_Letter_Sudhanshu_Joshi-1.png" alt="">
-                        </p>
-                        <p class="modal-description">Selected as an Executive Member of the Competitive Programming Team at MU-IEEE Student Branch, contributing to CP skill-building among students.</p>
-                        <p class="visit"><a href="https://www.linkedin.com/company/muieee/mycompany/" target="_blank" id="visit-btn">View LinkedIn</a></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- help-geared website -->
-        <div class="modal fade" id="helpgeared" tabindex="-1" role="dialog" aria-labelledby="oneCardForAllModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">help-geared</h4>
-                        <h6 class="modal-title-description">Team Project</h6>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            <video style="height: 300px;" controls> <source src="vdo/helpgeared.mp4" type="video/mp4"> </video>
-                        </p>
-                        <p class="modal-description">
-                          <b>A Platform for Empathy and Support</b>
-                            <br>
-                Team project for the Google Solution Challenge: a donation website connecting people in need with donors, addressing food wastage and lack of resources by facilitating donations of food, money, and clothing. I worked as frontend developer, designing the interface and handling hosting.
-                <br>
-                <br>
-               &lt; Payment gateway may not work for now &gt;
-                            </p>
-                        <br>
-                        <p class="modal-description">Checkout the Website by <b><a href="https://help-geared.uw.r.appspot.com/" target="_blank">Clicking Here!</a></p>
-                        <p class="visit"><a href="https://github.com/Sujal-2820/Google-Solution-Challenge" target="_blank" id="visit-btn">View Source</a></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Adventure Site-Landing Page -->
-        <div class="modal fade" id="landingPage" tabindex="-1" role="dialog" aria-labelledby="fontipsumsModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Landing Page</h4>
-                        <h6 class="modal-title-description">Website</h6>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            <img src="img/landing_page.png" alt="image" style="height: 300px;">
-                        </p>
-                        <p class="modal-description">A static landing page built with HTML and CSS for a travel/adventure vacation site — an early exercise in layout and visual hierarchy.</p>
-                        <p class="visit"><a href="https://github.com/sudhanshujoshi95/oibsip_1" target="_blank" id="visit-btn">View Source</a></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Flappy Bird Game -->
-        <div class="modal fade" id="flappyBirdGame" tabindex="-1" role="dialog" aria-labelledby="oneCardForAllModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Flappy Bird Game</h4>
-                        <h6 class="modal-title-description">Web Application</h6>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            <video style="height: 300px;" controls> <source src="vdo/Tutorial-Flappy Bird Gam.mp4" type="video/mp4"> </video>
-                        </p>
-                        <p class="modal-description">A Flappy Bird clone built with HTML, CSS, and JavaScript, with custom sound effects and animated sprite characters — an early, hands-on JavaScript exercise.</p>
-                        <br>
-                        <p class="modal-description">Play the game by <b><a href="https://lnkd.in/dZt2DaA3" target="_blank">clicking here!</a></p>
-                        <p class="visit"><a href="https://github.com/sudhanshujoshi95/flappy-bird-game.git" target="_blank" id="visit-btn">View Source</a></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Temperature Convertor Website -->
-        <div class="modal fade" id="temperatureConvertor" tabindex="-1" role="dialog" aria-labelledby="nuwitModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Temperature Converter</h4>
-                        <h6 class="modal-title-description">Website</h6>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            <video class="img-responsive img-centered" controls> <source src="vdo/TemperatureConverterWebSite_Trim.mp4" type="video/mp4"> </video>
-                        </p>
-                        <p class="modal-description">An interactive temperature converter built with HTML, CSS, and JavaScript, letting users convert between units instantly.</p>
-                        <p class="visit"><a href="http://temperaturecnvrtr.netlify.app" target="_blank" id="visit-btn">Visit Site</a> or <a href="https://github.com/sudhanshujoshi95/OIBSIP_3" target="_blank" id="visit-btn">View Source</a></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Student Record Management- C++ Project -->
-        <div class="modal fade" id="studentManagement" tabindex="-1" role="dialog" aria-labelledby="oneCardForAllModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Student Record Management</h4>
-                        <h6 class="modal-title-description">C++ Project</h6>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            <video style="height: 300px;" controls> <source src="vdo/student_management_Trim.mp4" type="video/mp4"> </video>
-                        </p>
-                        <p class="modal-description">A Student Record Management System in C++, using object-oriented programming and file handling to create, update, and delete student records.</p>
-                        <br>
-                        <p class="modal-description">Check out this short <b><a href="https://www.linkedin.com/posts/sudhanshu-joshi-35000421a_programming-cpp-project-activity-7037515104799637504-QKXw?utm_source=share&utm_medium=member_desktop" target="_blank">video</a></b> describing the project!</p>
-                        <p class="visit"><a href="https://github.com/sudhanshujoshi95/OOP_Project" target="_blank" id="visit-btn">View Source</a></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- BMI Calculator App- Flutter -->
-        <div class="modal fade" id="bmiCalculator" tabindex="-1" role="dialog" aria-labelledby="medMilModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Bmi Calculator</h4>
-                        <h6 class="modal-title-description">Flutter Project</h6>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            <video style="height: 300px;" controls> <source src="vdo/flutter_bmi_calculator.mp4" type="video/mp4"> </video>
-                        </p>
-                        <p class="modal-description">A BMI Calculator App built with Flutter — an early cross-platform exercise combining a clean UI with Flutter's widget library.</p>
-                        <p class="visit"><a href="https://github.com/sudhanshujoshi95/Flutter_BMICalculator_prjct" target="_blank" id="visit-btn">View Source</a></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Calendar App- Flutter -->
-        <div class="modal fade" id="calendarApp" tabindex="-1" role="dialog" aria-labelledby="mullen_comModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Calendar App</h4>
-                        <h6 class="modal-title-description">Flutter Project</h6>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            <video style="height: 300px;" controls> <source src="vdo/flutter_calendar_app.mp4" type="video/mp4"> </video>
-                        </p>
-                        <p class="modal-description">A Flutter calendar app letting users navigate dates and attach titles/descriptions to specific days, using Table Calendar and Provider for state management.</p>
-                        <p class="visit"><a href="" target="_blank" id="visit-btn">View Source</a></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Google AI Essentials Specialization -->
-        <div class="modal fade" id="googleAiEssentials" tabindex="-1" role="dialog" aria-labelledby="googleAiModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Google AI Essentials</h4>
-                        <h6 class="modal-title-description">Google / Coursera — 5-Course Specialization</h6>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            <img class="img-responsive img-centered" src="img/GoogleAIEssentials.png" alt="">
-                        </p>
-                        <p class="modal-description">Completed Google's AI Essentials Specialization (Introduction to AI, Discover the Art of Prompting, Maximize Productivity with AI Tools, Use AI Responsibly, Stay Ahead of the AI Curve). I use AI-assisted coding tools daily in my engineering work, and this formalized how I think about prompt engineering and responsible AI use.</p>
-                        <p class="visit"><a href="https://coursera.org/verify/specialization/YRM6ZK6NFI5E" target="_blank" id="visit-btn">Verify Certificate</a></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Hacker-Rank Problem Solving Certificate -->
-        <div class="modal fade" id="hackerRank" tabindex="-1" role="dialog" aria-labelledby="uscModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">HackerRank</h4>
-                        <h6 class="modal-title-description">Problem-Solving</h6>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            <img class="img-responsive img-centered" src="img/HackerRank.png" alt="">
-                        </p>
-                        <p class="modal-description"><b>Certified in Problem Solving by HackerRank</b><br>
-                            Validates proficiency in solving complex problems using efficient algorithms — the same foundation that got me to a 1462 LeetCode rating and 5-star HackerRank ratings in C and C++.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Frontend Web-Development Certificate -->
-        <div class="modal fade" id="frontendDev" tabindex="-1" role="dialog" aria-labelledby="mullen_comModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Frontend Web-development</h4>
-                        <h6 class="modal-title-description">Perfect e-Learning</h6>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            <img class="img-responsive img-centered" src="img/Frontend Web Dev Perfect e-Learning.jpg" alt="">
-                        </p>
-                        <p class="modal-description">Early foundation in building interactive, visually appealing user interfaces — a starting point for the frontend work I now do professionally in React and Flutter.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- MY SQL Certificate -->
-        <div class="modal fade" id="mySql" tabindex="-1" role="dialog" aria-labelledby="mullen_comModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">My SQL Essential Training</h4>
-                        <h6 class="modal-title-description">LinkedIn Learning</h6>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            <img class="img-responsive img-centered" src="img/My SQL Essential Training LinkedIn Learning.jpg" alt="">
-                        </p>
-                        <p class="modal-description">Foundational database administration, query optimization, and data security training — knowledge I now apply directly in schema design work with our backend team.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- AWS Cloud Foundation Certificate -->
-        <div class="modal fade" id="Awscloud" tabindex="-1" role="dialog" aria-labelledby="mullen_comModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Cloud Foundation</h4>
-                        <h6 class="modal-title-description">AWS Academy</h6>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            <img class="img-responsive img-centered" src="img/AWS_Academy_Graduate___AWS_Academy_Cloud_Foundations_Badge20230529-28-kd9x2t_page-0001.jpg" alt="">
-                        </p>
-                        <p class="modal-description">Foundational understanding of cloud computing concepts, AWS services, architectural best practices, and security considerations.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Java 11 Certificate (kept but no longer linked from the main grid — see note above) -->
-        <div class="modal fade" id="java11" tabindex="-1" role="dialog" aria-labelledby="bookmarksModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Java 11</h4>
-                        <h6 class="modal-title-description">LinkedIn Learning</h6>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            <img class="img-responsive img-centered" src="img/Java 11 LinkedIn Learning Certificate_page-0001.jpg" alt="">
-                        </p>
-                        <p class="modal-description">Coursework covering Java fundamentals. Note: Java is not part of my current day-to-day stack (Flutter/Dart, React/JavaScript, Node.js).</p>
-                        <br>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Git and GitHub -->
-        <div class="modal fade" id="gitAndGitHub" tabindex="-1" role="dialog" aria-labelledby="hciWebsiteModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Git &amp; GitHub</h4>
-                        <h6 class="modal-title-description">LinkedIn Learning</h6>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            <img class="img-responsive img-centered" src="img/CertificateOfCompletion_Learning Git and GitHub_page-0001.jpg" alt="">
-                        </p>
-                        <p class="modal-description">Version control fundamentals I now use daily — Git/GitHub workflows, code review, and pull request management across a 25-engineer organization.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Section: Contact -->
-        <section id="contact">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1 text-center">
-                        <div class="email-icon"><i class="fa fa-paper-plane-o wp6"></i></div>
-                        <h2>Get In Touch!</h2>
-                        <p>Whether you have an idea for a project, an opportunity to discuss, or just want to chat, feel free to shoot me an email!</p>
-                        <p style="margin-top:40px;">
-                            <a id="email-button" href="mailto:sudhanshujoshi95@gmail.com" target="_blank">Say Hello</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- /Section: Contact -->
-        <!-- Footer -->
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <ul class="list-inline social-buttons animated fadeIn">
-                            <!-- Twitter Button -->
-                            <li><a id="twitter" href="https://twitter.com/sudhanshu_j95" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <!-- Instagram Button -->
-                            <li><a id="instagram" href="https://www.instagram.com/sudhanshu.joshi95/?hl=en" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                            <!-- Spotify Button -->
-                            <li><a id="spotify" href="https://open.spotify.com/user/31mijkucprfxawalrv4rxo26rgpq" target="_blank"><i class="fa fa-spotify"></i></a></li>
-                            <!-- GitHub Button -->
-                            <li><a id="github" href="https://github.com/sudhanshujoshi95" target="_blank"><i class="fa fa-github"></i></a></li>
-                            <!-- LinkedIn Button -->
-                            <li><a id="linkedin" href="https://www.linkedin.com/in/sudhanshu-joshi-35000421a/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                        <h4>How it's built</h4>
+                        <ul class="points">
+                            <li>An LLM worker pulls tasks, blockers and progress events out of free-text updates. Its output is validated like any untrusted input.</li>
+                            <li>Multi-tenant from day one: org scoping lives in one middleware, and a cross-tenant leak test suite runs against it.</li>
+                            <li>Idempotency keys on writes, plus role-based access for admins, managers and members.</li>
                         </ul>
-                        <div class="page-scroll">
-                            <a id="to-top" class="page-scroll" href="#page-top">
-                                <img id="rocket" src="img/rocket12.png" />
-                            </a>
-                            <p id="to-top-copy">Beam me up, Rog!</p>
-                        </div>
-                        <div class="copyright">
-                            <!-- please don't steal my stuff without permission -->
-                            <p><i class="fa fa-copyright"></i>Credits: Brittany Chiang</p>
+                        <p class="tech">React 19 · TypeScript · Node / Express · MongoDB · Redis + BullMQ</p>
+                        <p class="links"><a class="go" href="https://standuppulse.sjbuilds.dev/" target="_blank" rel="noopener">Visit standuppulse.sjbuilds.dev</a></p>
+                    </div>
+                    <a class="product-media media-wide" href="https://standuppulse.sjbuilds.dev/" target="_blank" rel="noopener">
+                        <img src="img/work/standuppulse.jpg" alt="StandupPulse: turn daily standups into a clear team story" width="1200" height="630" loading="lazy">
+                    </a>
+                </article>
 
-                            <p>Checkout her original <a href="https://github.com/bchiang7/v1.git">Repo</a> </p>
+                <article class="product">
+                    <div class="product-text">
+                        <div class="product-title">
+                            <h3>Droplet</h3>
+                            <span class="status"><span class="pip"></span>On Google Play</span>
+                        </div>
+                        <p class="one-liner">A hydration tracker whose daily goal follows you and the weather.</p>
+
+                        <h4>The idea</h4>
+                        <p>
+                            Most water trackers give everyone the same eight glasses. Droplet works out a personal goal from your weight,
+                            age and activity level, then raises it on hot, humid days based on the weather where you are. You log what you
+                            drink and watch a hand-drawn figure fill up as the day goes on.
+                        </p>
+
+                        <h4>How it's built</h4>
+                        <ul class="points">
+                            <li>Goal formulas checked against published hydration research, with sources, before release.</li>
+                            <li>Reminders sent from the server by a scheduled Cloud Function over FCM, not fragile on-device schedules.</li>
+                            <li>Streaks and milestone badges, a body visual drawn in code, and Shorebird code push for instant fixes.</li>
+                        </ul>
+                        <p class="tech">Flutter · BLoC · Firebase · Cloud Functions · FCM · Shorebird</p>
+                        <p class="links">
+                            <a class="go" href="https://play.google.com/store/apps/details?id=com.sjbuilds.droplet" target="_blank" rel="noopener">Get it on Google Play</a>
+                            <a class="go" href="https://www.youtube.com/shorts/FKMdRvvchWI" target="_blank" rel="noopener">Watch the demo</a>
+                            <a class="go" href="https://droplet.sjbuilds.dev/" target="_blank" rel="noopener">droplet.sjbuilds.dev</a>
+                        </p>
+                    </div>
+                    <a class="product-media media-phone" href="https://www.youtube.com/shorts/FKMdRvvchWI" target="_blank" rel="noopener" aria-label="Watch the Droplet demo on YouTube">
+                        <img src="img/work/droplet.jpg" alt="Droplet's dashboard with a weather-adjusted goal and a hydration figure" width="720" height="1280" loading="lazy">
+                        <span class="play" aria-hidden="true">▶ Demo</span>
+                    </a>
+                </article>
+            </section>
+
+            <!-- Projects -->
+            <section class="section rise" id="projects">
+                <div class="section-head">
+                    <h2>Projects</h2>
+                    <a class="section-meta go" href="https://github.com/sudhanshujoshi95" target="_blank" rel="noopener">All on GitHub</a>
+                </div>
+
+                <div class="tiles tiles-4">
+                    <article class="tile">
+                        <p class="tile-kind">Flutter web · Node</p>
+                        <h4>GitHub Wrapped</h4>
+                        <p>A Spotify-Wrapped-style recap of anyone's year on GitHub. The Express API fetches and aggregates activity, and the Flutter client tells the story.</p>
+                        <p class="links">
+                            <a class="go" href="https://github-wrapped-37667.web.app/" target="_blank" rel="noopener">Try it</a>
+                            <a class="go" href="https://github.com/sudhanshujoshi95/github-wrapped-frontend" target="_blank" rel="noopener">Code</a>
+                        </p>
+                    </article>
+                    <article class="tile">
+                        <p class="tile-kind">Flutter · WebRTC</p>
+                        <h4>Peer-to-peer video</h4>
+                        <p>Real-time video calls, with my own Node + Socket.IO signalling server brokering offers, answers and ICE candidates.</p>
+                        <p class="links">
+                            <a class="go" href="https://webrtc-video-calling-app-de3b.onrender.com/" target="_blank" rel="noopener">Try it</a>
+                            <a class="go" href="https://github.com/sudhanshujoshi95/webrtc-video-calling-app" target="_blank" rel="noopener">Code</a>
+                        </p>
+                    </article>
+                    <article class="tile">
+                        <p class="tile-kind">Flutter · Canvas</p>
+                        <h4>Digital Prescription Pad</h4>
+                        <p>A handwriting canvas for doctors: pen and eraser, stroke control, zoom, multiple pages, and export to image or PDF.</p>
+                        <p class="links">
+                            <a class="go" href="https://github.com/sudhanshujoshi95/digital-prescription-pad" target="_blank" rel="noopener">Code</a>
+                        </p>
+                    </article>
+                    <article class="tile">
+                        <p class="tile-kind">Flutter web</p>
+                        <h4>TransitFlow</h4>
+                        <p>For bus operators: automates crew assignment, manages shift schedules and handovers, and tracks buses live on their routes.</p>
+                        <p class="links">
+                            <a class="go" href="https://github.com/sudhanshujoshi95/transitFlow-App" target="_blank" rel="noopener">Code</a>
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Writing -->
+            <section class="section rise" id="writing">
+                <div class="section-head">
+                    <h2>Writing</h2>
+                    <span class="section-meta">
+                        <a class="go" href="https://medium.com/@sudhanshujoshi95" target="_blank" rel="noopener">Medium</a>
+                        <a class="go" href="https://www.linkedin.com/in/sudhanshu-joshi-35000421a/recent-activity/all/" target="_blank" rel="noopener">LinkedIn</a>
+                    </span>
+                </div>
+
+                <div class="tiles tiles-2">
+                    <a class="tile article" href="https://medium.com/@sudhanshujoshi95/the-payment-went-through-the-app-said-it-failed-both-were-true-b6a34a1bba49" target="_blank" rel="noopener">
+                        <p class="tile-kind">Medium · Aug 2026 · Networking</p>
+                        <h4>The Payment Went Through. The App Said It Failed. Both Were True.</h4>
+                        <p>How data travels, why TCP exists, what happens when a response is lost in transit, and how idempotency keys stop a lost response from becoming a double charge.</p>
+                        <span class="read">Read →</span>
+                    </a>
+                    <a class="tile article" href="https://medium.com/@sudhanshujoshi95/the-librarian-who-forgets-you-every-time-a-complete-story-of-authentication-1662199775ed" target="_blank" rel="noopener">
+                        <p class="tile-kind">Medium · Aug 2026 · Security</p>
+                        <h4>The Librarian Who Forgets You Every Time</h4>
+                        <p>What "logging in" really means, why the web forgets you on purpose, sessions versus tokens, and what actually happens when a token is stolen.</p>
+                        <span class="read">Read →</span>
+                    </a>
+                    <!-- To add a LinkedIn article, copy one <a class="tile article"> block above and change it. -->
+                </div>
+            </section>
+
+            <!-- Resume -->
+            <section class="section rise" id="resume">
+                <div class="section-head">
+                    <h2>Resume</h2>
+                    <span class="section-meta">One page · updated Oct 2026</span>
+                </div>
+
+                <div class="resume">
+                    <div class="resume-text">
+                        <p class="lead-sm">Everything above, on a single page.</p>
+                        <dl class="resume-facts">
+                            <div><dt>Now</dt><dd>Lead Technical Engineer, Medoc Health</dd></div>
+                            <div><dt>Shipped</dt><dd>StandupPulse, Droplet</dd></div>
+                            <div><dt>Stack</dt><dd>Flutter, React, TypeScript, Node.js, MongoDB, Redis, WebRTC</dd></div>
+                            <div><dt>Education</dt><dd>B.Tech Computer Science, Medicaps University, 2025</dd></div>
+                            <div><dt>Certified</dt><dd>Google AI Essentials, AWS Academy Cloud Foundations</dd></div>
+                        </dl>
+                        <div class="actions">
+                            <a class="btn btn-solid" href="Sudhanshu-Joshi-Resume.pdf" download>Download PDF</a>
+                            <a class="btn" href="resume.html">Open in browser</a>
                         </div>
                     </div>
+                    <a class="resume-preview" href="resume.html" aria-label="Open resume">
+                        <img src="img/resume-preview.jpg" alt="Preview of Sudhanshu Joshi's one-page resume" width="760" height="1076" loading="lazy">
+                    </a>
                 </div>
-            </div>
-            <!-- container -->
+            </section>
+
+            <!-- Contact -->
+            <section class="contact rise" id="contact">
+                <div>
+                    <p class="hello">Contact</p>
+                    <h2>Have something worth building?</h2>
+                    <p class="muted">Questions about a product or an article, or a project you'd like to build together: email gets the fastest reply.</p>
+                </div>
+                <div class="contact-links">
+                    <a class="email" href="mailto:sudhanshujoshi95@gmail.com">sudhanshujoshi95@gmail.com</a>
+                    <ul class="socials">
+                        <li><a href="https://github.com/sudhanshujoshi95" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/sudhanshu-joshi-35000421a/" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="https://medium.com/@sudhanshujoshi95" target="_blank" rel="noopener">Medium</a></li>
+                        <li><a href="https://www.youtube.com/shorts/FKMdRvvchWI" target="_blank" rel="noopener">YouTube</a></li>
+                        <li><a href="https://twitter.com/sudhanshu_j95" target="_blank" rel="noopener">X</a></li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <footer class="foot">
+            <span>© <span id="year">2026</span> Sudhanshu Joshi · sjbuilds</span>
+            <span class="foot-links">
+                <a href="https://github.com/sudhanshujoshi95" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/sudhanshu-joshi-35000421a/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://medium.com/@sudhanshujoshi95" target="_blank" rel="noopener">Medium</a>
+            </span>
         </footer>
-        <!-- Core JavaScript Files -->
-        <script src="js/bootstrap.min.js"></script>
-        <!-- jQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="js/jquery.easing.1.3.js"></script>
-        <script src="js/jquery.scrollTo.min.js"></script>
-        <!-- Helpers -->
-        <script src="js/scrolling-nav.js"></script>
-        <script src="js/jquery.waypoints.min.js"></script>
-        <script src="js/modernizr.js"></script>
-        <script src="js/custom.js"></script>
+    </div>
 
-        <!-- *********************************************
-         _   _              _   _                   _
-        | | | | ___ _   _  | |_| |__   ___ _ __ ___| |
-        | |_| |/ _ \ | | | | __| '_ \ / _ \ '__/ _ \ |
-        |  _  |  __/ |_| | | |_| | | |  __/ | |  __/_|
-        |_| |_|\___|\__, |  \__|_| |_|\___|_|  \___(_)
-                    |___/
-
-        Lookin' at the source code huh?
-        Be sure to drop me a line! I'd love to chat,
-        whether it's about code, design,
-        chai(Tea), Cricket, or anything in between.
-
-        - Sudhanshu.J
-
-        ********************************************** -->
+    <script src="js/site.js"></script>
 </body>
 
 </html>

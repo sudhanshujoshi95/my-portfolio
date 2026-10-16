@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sudhanshu Joshi — Resume</title>
+    <meta name="description" content="Resume of Sudhanshu Joshi, Lead Technical Engineer at Medoc Health.">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+    <style>
+        :root { --text: #1b1b1a; --muted: #5f5f5b; --faint: #a3a39e; --line: #e2e1dc; --bg: #fbfbf9; --paper: #ffffff; }
+        * { box-sizing: border-box; }
+        body { margin: 0; background: var(--bg); color: var(--text); font-family: "IBM Plex Sans", -apple-system, sans-serif; }
+        a { color: inherit; text-decoration: none; }
+
+        .bar {
+            max-width: 210mm; margin: 0 auto; padding: 24px 0 16px;
+            display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+            font-size: 14px; color: var(--muted);
+        }
+        .bar a:hover { color: var(--text); }
+        .bar .mark { font-family: "IBM Plex Mono", monospace; font-weight: 500; color: var(--text); }
+        .bar .dl { color: var(--text); border-bottom: 1px solid var(--faint); }
+
+        .sheet {
+            width: 210mm; min-height: 297mm; margin: 0 auto 48px; background: var(--paper);
+            padding: 10mm 13mm 6mm; border: 1px solid var(--line);
+            font-size: 8.7pt; line-height: 1.36;
+        }
+
+        header { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; padding-bottom: 10px; border-bottom: 1.5px solid var(--text); }
+        h1 { font-size: 21pt; font-weight: 600; letter-spacing: -0.02em; margin: 0; line-height: 1.1; }
+        .title { margin: 4px 0 0; font-size: 10.5pt; color: var(--muted); }
+        .contact { text-align: right; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+        .contact a { color: var(--text); }
+
+        section { margin-top: 10px; }
+        h2 {
+            font-size: 8pt; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+            color: var(--muted); margin: 0 0 6px; padding-bottom: 3px; border-bottom: 1px solid var(--line);
+        }
+        p { margin: 0; }
+        .summary { color: var(--text); }
+
+        .item + .item { margin-top: 9px; }
+        .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+        h3 { font-size: 10pt; font-weight: 600; margin: 0; }
+        h3 .sub { font-weight: 400; color: var(--muted); }
+        .when { font-family: "IBM Plex Mono", monospace; font-size: 8.3pt; color: var(--muted); white-space: nowrap; }
+        .path { font-size: 8.8pt; color: var(--muted); margin-top: 1px; }
+
+        ul { margin: 4px 0 0; padding-left: 14px; }
+        li { margin: 0 0 2.5px; padding-left: 2px; }
+        li::marker { color: var(--faint); }
+        .stack { font-family: "IBM Plex Mono", monospace; font-size: 7.8pt; color: var(--muted); margin-top: 3px; }
+
+        .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 22px; }
+        .skills { display: grid; grid-template-columns: 92px 1fr; gap: 3px 10px; }
+        .skills dt { font-weight: 600; }
+        .skills dd { margin: 0; color: var(--text); }
+
+        @page { size: A4; margin: 0; }
+        @media print {
+            body { background: #fff; }
+            .bar { display: none; }
+            .sheet { margin: 0; border: 0; width: auto; min-height: auto; }
+        }
+        @media screen and (max-width: 820px) {
+            .bar { padding: 16px; }
+            .sheet { width: auto; min-height: 0; margin: 0 0 32px; border-left: 0; border-right: 0; padding: 24px 16px; font-size: 10pt; }
+            header { flex-direction: column; align-items: flex-start; }
+            .contact { text-align: left; }
+            .two { grid-template-columns: 1fr; }
+            .row { flex-direction: column; gap: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bar">
+        <a class="mark" href="/">← sjbuilds</a>
+        <a class="dl" href="Sudhanshu-Joshi-Resume.pdf" download>Download PDF</a>
+    </div>
+
+    <article class="sheet">
+        <header>
+            <div>
+                <h1>Sudhanshu Joshi</h1>
+                <p class="title">Lead Technical Engineer · Mobile, Full-Stack &amp; Real-Time Systems</p>
+            </div>
+            <div class="contact">
+                Indore, India<br>
+                <a href="mailto:sudhanshujoshi95@gmail.com">sudhanshujoshi95@gmail.com</a><br>
+                <a href="https://sjbuilds.dev">sjbuilds.dev</a> ·
+                <a href="https://github.com/sudhanshujoshi95">github.com/sudhanshujoshi95</a><br>
+                <a href="https://www.linkedin.com/in/sudhanshu-joshi-35000421a/">linkedin.com/in/sudhanshu-joshi-35000421a</a>
+            </div>
+        </header>
+
+        <section>
+            <h2>Summary</h2>
+            <p class="summary">
+                Engineer with four years at Medoc Health, a healthcare technology company, growing from Flutter intern to Lead Technical
+                Engineer of a 25-person organisation across mobile, backend and AI/ML. Hands-on in Flutter, React and Node.js, with
+                depth in real-time systems (WebSocket, WebRTC/LiveKit), API and schema design, and design systems. Independently builds and
+                ships products under the name sjbuilds, including an LLM-backed SaaS and an app on Google Play.
+            </p>
+        </section>
+
+        <section>
+            <h2>Experience</h2>
+            <div class="item">
+                <div class="row">
+                    <h3>Medoc Health <span class="sub">— healthcare technology</span></h3>
+                    <span class="when">Oct 2022 – Present</span>
+                </div>
+                <p class="path">Lead Technical Engineer · joined as Flutter Developer Intern</p>
+                <ul>
+                    <li>Lead a 25-engineer organisation spanning mobile, backend and AI/ML, building a connected platform for hospitals; set technical direction, run code review and PR workflows.</li>
+                    <li>Built the real-time layer of <strong>ME</strong>, the patient app: video consultations on LiveKit (WebRTC) and live alerts over WebSockets.</li>
+                    <li>Work across Flutter and React clients of a multi-module hospital operations platform; design API contracts and data schemas with the backend team.</li>
+                    <li>Introduced shared component style guides and design-system standards across four product surfaces built by different engineers.</li>
+                    <li>Brought AI-assisted development into the team's day-to-day writing, refactoring and debugging of code.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Products — sjbuilds</h2>
+            <div class="item">
+                <div class="row">
+                    <h3>StandupPulse <span class="sub">— standup tracker &amp; progress visualizer · standuppulse.sjbuilds.dev</span></h3>
+                    <span class="when">2026</span>
+                </div>
+                <ul>
+                    <li>Multi-tenant SaaS that turns daily standups into a structured record and narrated timeline of a team's work; role-based access for admins, managers and members.</li>
+                    <li>Background workers (Redis + BullMQ) use an LLM to extract tasks, blockers and progress events; output is schema-validated as untrusted input, with retry/backoff and result caching.</li>
+                    <li>Tenant isolation enforced in a single middleware and covered by a cross-tenant leak test suite; idempotency keys make retried writes safe.</li>
+                </ul>
+                <p class="stack">React 19 · TypeScript · TanStack Query · Node.js / Express · MongoDB · Redis · BullMQ · Vitest</p>
+            </div>
+            <div class="item">
+                <div class="row">
+                    <h3>Droplet <span class="sub">— hydration tracker · live on Google Play</span></h3>
+                    <span class="when">2025 – 2026</span>
+                </div>
+                <ul>
+                    <li>Personal daily water goal from weight, age and activity, adjusted for local weather; formulas validated against published hydration research.</li>
+                    <li>Server-driven reminders via scheduled Cloud Functions and FCM; streaks and milestones; CustomPainter body visualisation; Shorebird over-the-air patches.</li>
+                </ul>
+                <p class="stack">Flutter · BLoC · Firebase Auth / Firestore · Cloud Functions · FCM · Shorebird</p>
+            </div>
+        </section>
+
+        <div class="two">
+            <section>
+                <h2>Other projects</h2>
+                <ul>
+                    <li><strong>GitHub Wrapped</strong> — yearly GitHub recap; Flutter web + Node/Express API.</li>
+                    <li><strong>P2P video calling</strong> — Flutter + WebRTC with a custom Socket.IO signalling server.</li>
+                    <li><strong>Digital Prescription Pad</strong> — handwriting canvas for doctors with PDF export.</li>
+                    <li><strong>TransitFlow</strong> — crew scheduling and live bus tracking web app.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Writing</h2>
+                <ul>
+                    <li><strong>The Payment Went Through. The App Said It Failed.</strong> — TCP, lost responses and idempotency keys. <em>Medium, 2026</em></li>
+                    <li><strong>The Librarian Who Forgets You Every Time</strong> — sessions, tokens and authentication end to end. <em>Medium, 2026</em></li>
+                </ul>
+            </section>
+        </div>
+
+        <section>
+            <h2>Skills</h2>
+            <dl class="skills">
+                <dt>Mobile</dt><dd>Flutter, Dart, BLoC, Firebase, iOS &amp; Android release</dd>
+                <dt>Web</dt><dd>React, TypeScript, JavaScript, TanStack Query, Tailwind CSS</dd>
+                <dt>Backend</dt><dd>Node.js, Express, REST API design, MongoDB, SQL, Redis, BullMQ</dd>
+                <dt>Real-time</dt><dd>WebSocket, WebRTC, LiveKit, Socket.IO</dd>
+                <dt>Practice</dt><dd>Design systems, multi-tenant architecture, LLM integration, code review, AI-assisted development</dd>
+            </dl>
+        </section>
+
+        <div class="two">
+            <section>
+                <h2>Education</h2>
+                <div class="row">
+                    <h3>B.Tech, Computer Science &amp; Engineering</h3>
+                    <span class="when">2021 – 2025</span>
+                </div>
+                <p class="path">Medicaps University, Indore</p>
+            </section>
+            <section>
+                <h2>Certifications</h2>
+                <ul>
+                    <li>Google AI Essentials Specialization — Google / Coursera</li>
+                    <li>AWS Academy Cloud Foundations — AWS Academy</li>
+                </ul>
+            </section>
+        </div>
+    </article>
+</body>
+</html>

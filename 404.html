@@ -1,57 +1,35 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Sudhanshu Joshi | 404</title>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Not found — sjbuilds</title>
+    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
     <style>
-        @import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,300italic,100italic,400italic,700,700italic|Lora:400,400italic,700,700italic|Roboto+Slab:400,100,300,700|Merriweather:400,300,300italic,400italic,700,700italic);
-
+        :root { --bg: #fbfbf9; --text: #1b1b1a; --muted: #6d6d69; --faint: #a3a39e; }
+        @media (prefers-color-scheme: dark) {
+            :root { --bg: #121211; --text: #e9e8e4; --muted: #9a9993; --faint: #5f5e59; }
+        }
         body {
-            margin: 0;
-            padding: 0;
-            background-color: #070526;
-            color: #fff;
-            font-size: 100%;
-            line-height: 1.5;
-            font-family: "Lato", serif;
-            text-align: center;
+            margin: 0; background: var(--bg); color: var(--text);
+            font-family: "IBM Plex Sans", -apple-system, sans-serif; line-height: 1.7;
         }
-        h1 {
-            text-align: center;
-            font-size: 250px;
-            line-height: 300px;
-            font-weight: 100;
-            margin: 50px auto -10px;
-        }
-        p {
-            font-size: 1.5em;
-            text-align: center;
-            font-weight: 100;
-            margin-top: 50px;
-            margin-bottom: 70px;
-            font-family: 'Roboto Slab', serif;
-        }
-        .button {
-            font-weight: 300;
-            color: #ccc;
-            font-size: 1.1em;
-            text-decoration: none;
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 5px;
-            transition: all .3s linear;
-        }
-        .button:hover {
-            color: #070526;
-            background: #ccc;
-        }
-
+        main { max-width: 760px; margin: 0 auto; padding: 36px 24px; }
+        .mark { font-family: "IBM Plex Mono", monospace; font-size: 14px; font-weight: 500; color: inherit; text-decoration: none; }
+        h1 { font-size: 26px; font-weight: 500; margin: 120px 0 8px; }
+        p { color: var(--muted); margin: 0 0 24px; }
+        a.home { color: var(--text); text-decoration: underline; text-decoration-color: var(--faint); text-underline-offset: 3px; }
+        code { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--faint); }
+        @media (max-width: 680px) { main { padding: 24px 16px; } h1 { margin-top: 80px; } }
     </style>
-
 </head>
 <body>
-    <h1>404</h1>
-    <p>Uh oh, are you lost?</p>
-    <a class="button" href="index.html">Let's go home.</a>
+    <main>
+        <a class="mark" href="/">sjbuilds_</a>
+        <h1>Nothing here.</h1>
+        <p>This page doesn't exist, or it has moved. <code>404</code></p>
+        <a class="home" href="/">Back to the homepage</a>
+    </main>
 </body>
 </html>
