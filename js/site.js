@@ -10,14 +10,162 @@
         requestAnimationFrame(function () { root.classList.add('ready'); });
     });
 
-    // Theme toggle, remembered per visitor.
-    document.getElementById('theme').addEventListener('click', function () {
-        var current = root.getAttribute('data-theme') ||
-            (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        var next = current === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next);
-        try { localStorage.setItem('theme', next); } catch (e) {}
+    // ---- Scene picker: time of day x season, each "auto" or chosen ----
+    var sceneBtn = document.getElementById('scene-btn');
+    var scenePanel = document.getElementById('scene-panel');
+    var sceneLabel = document.getElementById('scene-label');
+    var chips = scenePanel.querySelectorAll('.chip');
+
+    function iconFor(kind, value) {
+        var chip = scenePanel.querySelector('.chip[data-kind="' + kind + '"][data-value="' + value + '"]');
+        return chip ? chip.querySelector('svg').outerHTML : '';
+    }
+
+    function applyScene() {
+        var s = window.sjApply();
+        document.getElementById('scene-time-icon').innerHTML = iconFor('time', s.time);
+        document.getElementById('scene-season-icon').innerHTML = iconFor('season', s.season);
+        chips.forEach(function (c) {
+            c.setAttribute('aria-pressed', String(s.pick[c.getAttribute('data-kind')] === c.getAttribute('data-value')));
+        });
+        var label = s.season + ' ' + s.time;
+        var custom = s.pick.time !== 'auto' || s.pick.season !== 'auto';
+        sceneLabel.textContent = label + (custom ? ' · picked' : '');
+        sceneBtn.setAttribute('aria-label', 'Scene: ' + label + (custom ? ' (picked)' : ' (automatic)') + '. Change scene');
+        sceneBtn.title = 'Scene: ' + label;
+        sky.refresh();
+    }
+
+    function setPanel(open) {
+        scenePanel.hidden = !open;
+        sceneBtn.setAttribute('aria-expanded', String(open));
+        if (open) (scenePanel.querySelector('.chip[aria-pressed="true"]') || chips[0]).focus();
+    }
+
+    sceneBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        setPanel(scenePanel.hidden);
     });
+    scenePanel.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var chip = e.target.closest('.chip');
+        if (!chip) return;
+        var kind = chip.getAttribute('data-kind'), value = chip.getAttribute('data-value');
+        try {
+            if (value === 'auto') localStorage.removeItem('scene-' + kind);
+            else localStorage.setItem('scene-' + kind, value);
+        } catch (err) {}
+        if (location.search.indexOf('scene=') !== -1) history.replaceState(null, '', location.pathname + location.hash);
+        applyScene();
+    });
+    document.addEventListener('click', function () { if (!scenePanel.hidden) setPanel(false); });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !scenePanel.hidden) { setPanel(false); sceneBtn.focus(); }
+    });
+
+    // ---- Ambient sky: snow in winter, rain in the monsoon, stars on summer nights ----
+    var sky = (function () {
+        var canvas = document.getElementById('sky');
+        var ctx = canvas && canvas.getContext && canvas.getContext('2d');
+        var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var effect = null, particles = [], colour = '', raf = 0, w = 0, h = 0, dpr = 1;
+
+        function pick() {
+            var s = root.getAttribute('data-season');
+            if (s === 'winter') return 'snow';
+            if (s === 'monsoon') return 'rain';
+            if (s === 'summer' && root.getAttribute('data-time') === 'night') return 'stars';
+            return null;
+        }
+
+        function colourFor(kind) {
+            var dark = root.getAttribute('data-theme') === 'dark';
+            if (kind === 'snow') return dark ? 'rgba(255,255,255,0.55)' : 'rgba(112,136,170,0.45)';
+            if (kind === 'rain') return dark ? 'rgba(186,206,226,0.22)' : 'rgba(84,106,128,0.22)';
+            return 'rgba(255,244,220,1)';
+        }
+
+        function seed() {
+            var area = w * h, n, i;
+            particles = [];
+            if (effect === 'snow') {
+                n = Math.min(70, Math.round(area / 22000));
+                for (i = 0; i < n; i++) particles.push({ x: Math.random() * w, y: Math.random() * h, r: 0.8 + Math.random() * 1.6, v: 0.25 + Math.random() * 0.45, p: Math.random() * 6.28 });
+            } else if (effect === 'rain') {
+                n = Math.min(90, Math.round(area / 15000));
+                for (i = 0; i < n; i++) particles.push({ x: Math.random() * w, y: Math.random() * h, l: 10 + Math.random() * 10, v: 6 + Math.random() * 4 });
+            } else if (effect === 'stars') {
+                n = Math.min(60, Math.round(area / 26000));
+                for (i = 0; i < n; i++) particles.push({ x: Math.random() * w, y: Math.random() * h * 0.7, r: 0.5 + Math.random() * 1.1, p: Math.random() * 6.28 });
+            }
+        }
+
+        function resize() {
+            dpr = Math.min(window.devicePixelRatio || 1, 2);
+            w = window.innerWidth; h = window.innerHeight;
+            canvas.width = w * dpr; canvas.height = h * dpr;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            seed();
+        }
+
+        function frame(t) {
+            ctx.clearRect(0, 0, w, h);
+            var i, q;
+            if (effect === 'snow') {
+                ctx.fillStyle = colour;
+                for (i = 0; i < particles.length; i++) {
+                    q = particles[i];
+                    q.y += q.v;
+                    q.x += Math.sin(t / 1800 + q.p) * 0.3;
+                    if (q.y > h + 4) { q.y = -4; q.x = Math.random() * w; }
+                    ctx.beginPath(); ctx.arc(q.x, q.y, q.r, 0, 6.283); ctx.fill();
+                }
+            } else if (effect === 'rain') {
+                ctx.strokeStyle = colour; ctx.lineWidth = 1; ctx.beginPath();
+                for (i = 0; i < particles.length; i++) {
+                    q = particles[i];
+                    q.y += q.v; q.x -= q.v * 0.18;
+                    if (q.y > h + 20) { q.y = -20; q.x = Math.random() * (w + 60); }
+                    ctx.moveTo(q.x, q.y); ctx.lineTo(q.x + q.l * 0.18, q.y - q.l);
+                }
+                ctx.stroke();
+            } else if (effect === 'stars') {
+                for (i = 0; i < particles.length; i++) {
+                    q = particles[i];
+                    ctx.globalAlpha = 0.25 + 0.35 * (0.5 + 0.5 * Math.sin(t / 1400 + q.p));
+                    ctx.fillStyle = colour;
+                    ctx.beginPath(); ctx.arc(q.x, q.y, q.r, 0, 6.283); ctx.fill();
+                }
+                ctx.globalAlpha = 1;
+            }
+            raf = requestAnimationFrame(frame);
+        }
+
+        function stop() { cancelAnimationFrame(raf); raf = 0; }
+        function start() { if (!raf && effect && !document.hidden) raf = requestAnimationFrame(frame); }
+
+        function refresh() {
+            if (!ctx || still) return;
+            var next = pick();
+            colour = colourFor(next);
+            if (next !== effect) { effect = next; seed(); }
+            if (!effect) { stop(); ctx.clearRect(0, 0, w, h); } else start();
+        }
+
+        var ready = false;
+        if (ctx && !still) {
+            resize();
+            window.addEventListener('resize', resize);
+            document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+            // Let the page fade in first, then bring the weather in gently.
+            setTimeout(function () { ready = true; canvas.classList.add('on'); refresh(); }, 1500);
+        }
+        return { refresh: function () { if (ready) refresh(); } };
+    })();
+
+    applyScene();
+    // Morning turns to day, day to evening: re-check every few minutes.
+    setInterval(applyScene, 5 * 60 * 1000);
 
     // Local time in Indore.
     var clock = document.getElementById('clock');

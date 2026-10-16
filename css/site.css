@@ -37,13 +37,49 @@
     color-scheme: dark;
 }
 
+/* ---------- Scenes: time of day (auto mode only) ---------- */
+
+/* Morning: a fresher, cooler light */
+:root[data-time="morning"] {
+    --bg: #f7f9f8;
+    --panel: #eef2f0;
+    --line: #e0e5e2;
+}
+
+/* Evening: warm dusk */
+:root[data-time="evening"] {
+    --bg: #1b1613;
+    --panel: #251e19;
+    --text: #f1e8df;
+    --muted: #b4a69a;
+    --faint: #6f6257;
+    --line: #322922;
+    --live: #5cc98a;
+    color-scheme: dark;
+}
+
+/* ---------- Scenes: season tints ---------- */
+
+:root { --sky: transparent; --sun: transparent; }
+
+:root[data-season="winter"]                      { --sky: rgba(150, 182, 224, .26); }
+:root[data-season="winter"][data-theme="dark"]   { --sky: rgba(96, 128, 178, .16); }
+:root[data-season="summer"]                      { --sky: rgba(255, 200, 120, .28); --sun: rgba(255, 186, 84, .34); }
+:root[data-season="summer"][data-theme="dark"]   { --sky: rgba(255, 150, 80, .10); --sun: rgba(255, 140, 60, .16); }
+:root[data-season="summer"][data-time="night"]   { --sun: transparent; }
+:root[data-season="monsoon"]                     { --sky: rgba(118, 150, 160, .26); }
+:root[data-season="monsoon"][data-theme="dark"]  { --sky: rgba(88, 120, 132, .16); }
+
 *, *::before, *::after { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; scroll-padding-top: 24px; }
 
 body {
     margin: 0;
-    background: var(--bg);
+    background-color: var(--bg);
+    background-image: radial-gradient(1400px 700px at 80% -15%, var(--sky), transparent 70%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     color: var(--text);
     font-family: var(--sans);
     font-size: 16px;
@@ -83,7 +119,25 @@ p a:not(.go):hover { background-image: linear-gradient(var(--text), var(--text))
 .muted { color: var(--muted); }
 .small { font-size: 14px; }
 
-.page { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+.page { max-width: 1080px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+
+/* Ambient layers sit behind the content and never take clicks */
+.sky { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: 0; transition: opacity 2s ease; }
+.sky.on { opacity: 1; }
+
+/* Summer: a soft sun that slowly breathes in the top corner */
+body::before {
+    content: ""; position: fixed; top: -220px; right: -160px; width: 560px; height: 560px;
+    border-radius: 50%; pointer-events: none; z-index: 0;
+    background: radial-gradient(circle, var(--sun) 0%, transparent 65%);
+    animation: sun 12s ease-in-out infinite;
+}
+@keyframes sun {
+    0%, 100% { transform: scale(1); opacity: .85; }
+    50% { transform: scale(1.08); opacity: 1; }
+}
+
+.scene { text-transform: capitalize; }
 
 /* ---------- Header ---------- */
 
@@ -92,21 +146,56 @@ p a:not(.go):hover { background-image: linear-gradient(var(--text), var(--text))
 .caret { display: inline-block; margin-left: 1px; color: var(--faint); animation: blink 1.2s steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 
-.top-nav { display: flex; align-items: center; gap: 24px; font-size: 14px; color: var(--muted); }
+.top-nav { display: flex; align-items: center; gap: 24px; margin-left: auto; font-size: 14px; color: var(--muted); }
 .top-nav a:hover { color: var(--text); }
 
-.theme {
-    display: inline-grid; place-items: center;
-    width: 24px; height: 24px; padding: 0;
-    background: none; border: 0; cursor: pointer; color: var(--text);
+/* ---------- Scene picker ---------- */
+
+.top { position: relative; }
+.scene-picker { position: relative; margin-left: 20px; }
+
+.scene-btn {
+    display: inline-flex; align-items: center; gap: 2px;
+    height: 32px; padding: 0 8px; border-radius: 999px;
+    border: 1px solid var(--line); background: none; color: var(--text); cursor: pointer;
+    transition: border-color .2s ease, background-color .2s ease;
 }
-.theme-dot {
-    width: 12px; height: 12px; border-radius: 50%;
-    border: 1px solid currentColor;
-    background: linear-gradient(90deg, currentColor 50%, transparent 50%);
-    transition: transform .4s ease;
+.scene-btn:hover, .scene-btn[aria-expanded="true"] { border-color: var(--faint); background-color: var(--panel); }
+.scene-icon { display: inline-grid; place-items: center; width: 20px; height: 20px; }
+.scene-icon + .scene-icon { color: var(--muted); }
+
+.scene-btn svg, .chip svg {
+    width: 18px; height: 18px; fill: none; stroke: currentColor;
+    stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
 }
-.theme:hover .theme-dot { transform: rotate(180deg); }
+
+.scene-panel {
+    position: absolute; right: 0; top: calc(100% + 10px); z-index: 20;
+    width: 360px; max-width: calc(100vw - 32px);
+    padding: 16px; border: 1px solid var(--line); border-radius: 12px;
+    background: var(--bg); box-shadow: 0 12px 32px rgba(0, 0, 0, .12);
+    animation: panel-in .18s ease-out;
+}
+.scene-panel[hidden] { display: none; }
+@keyframes panel-in { from { opacity: 0; transform: translateY(-4px); } }
+
+.scene-row + .scene-row { margin-top: 14px; }
+.scene-row-title { font-family: var(--mono); font-size: 12px; color: var(--muted); margin: 0 0 8px !important; }
+.chips-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.scene-row:nth-child(2) .chips-row { grid-template-columns: repeat(4, 1fr); }
+
+.chip {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    padding: 9px 4px 7px; border-radius: 8px;
+    border: 1px solid var(--line); background: none; color: var(--muted);
+    font: 500 11.5px/1.2 var(--sans); cursor: pointer;
+    transition: border-color .2s ease, background-color .2s ease, color .2s ease;
+}
+.chip:hover { color: var(--text); border-color: var(--faint); }
+.chip[aria-pressed="true"] { color: var(--text); border-color: var(--text); background-color: var(--panel); }
+.chip svg { width: 20px; height: 20px; }
+
+.scene-note { font-size: 12.5px; color: var(--muted); margin: 14px 0 0 !important; }
 
 /* ---------- Buttons ---------- */
 
@@ -401,8 +490,9 @@ a.section-meta:hover, .section-meta a:hover { color: var(--text); }
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .js .rise { opacity: 1; transform: none; }
-    .caret, .pip::after, .marquee-track { animation: none !important; }
-    a, .btn, .tile, .product-media img, .resume-preview img, .go::after, .theme-dot, .article .read { transition: none; }
+    .caret, .pip::after, .marquee-track, body::before, .scene-panel { animation: none !important; }
+    .sky { display: none; }
+    a, .btn, .tile, .product-media img, .resume-preview img, .go::after, .scene-btn, .chip, .article .read { transition: none; }
 }
 
 /* ---------- Responsive ---------- */
