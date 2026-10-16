@@ -1,0 +1,19 @@
+[
+  {
+    "url": "https://medium.com/@sudhanshujoshi95/the-payment-went-through-the-app-said-it-failed-both-were-true-b6a34a1bba49",
+    "title": "The Payment Went Through. The App Said It Failed. Both Were True.",
+    "shortTitle": "The Payment Went Through. The App Said It Failed.",
+    "date": "2026-08-19",
+    "topic": "Networking",
+    "summary": "How data travels, why TCP exists, what happens when a response is lost in transit, and how idempotency keys stop a lost response from becoming a double charge.",
+    "source": "Medium"
+  },
+  {
+    "url": "https://medium.com/@sudhanshujoshi95/the-librarian-who-forgets-you-every-time-a-complete-story-of-authentication-1662199775ed",
+    "title": "The Librarian Who Forgets You Every Time",
+    "date": "2026-08-04",
+    "topic": "Security",
+    "summary": "What \"logging in\" really means, why the web forgets you on purpose, sessions versus tokens, and what actually happens when a token is stolen.",
+    "source": "Medium"
+  }
+]
