@@ -1,0 +1,30 @@
+[
+  {
+    "url": "https://www.linkedin.com/posts/sudhanshu-joshi-35000421a_fixing-task-fragmentation-in-an-llm-pipeline-ugcPost-7516520188545110016-rFC3/",
+    "date": "2026-10-16",
+    "text": "I was debugging an LLM task extraction problem in StandupPulse, the platform I built a month ago, and the root cause was task fragmentation.",
+    "image": "img/linkedin/7516520188545110016.jpg"
+  },
+  {
+    "url": "https://www.linkedin.com/posts/sudhanshu-joshi-35000421a_droplet-flutter-firebase-share-7515388272332951552-Z5Jq/",
+    "date": "2026-10-12",
+    "text": "Droplet is now finally live on Google Play. After the teaser and the promo video, Droplet is finally here. Building it alone from the first line of code to the store listing has been one of the most rewarding things I've done.",
+    "image": "img/linkedin/7515388272332951552.jpg"
+  },
+  {
+    "url": "https://www.linkedin.com/posts/sudhanshu-joshi-35000421a_healthtech-mobileapp-productlaunch-ugcPost-7514672747411845120-MUIN/",
+    "date": "2026-10-10",
+    "text": "Showcasing something, I was talking about- \"Droplet\". And it's coming to your phone in the next 24-48 hours. I built this because I was forgetting to drink water constantly."
+  },
+  {
+    "url": "https://www.linkedin.com/posts/sudhanshu-joshi-35000421a_buildinpublic-sjbuilds-standuppulse-share-7501340274879631362-USSB/",
+    "date": "2026-09-03",
+    "text": "Alright, time to actually talk about it. Last week I posted about something I was building that turns noise into narrative. Here it is: StandupPulse.",
+    "image": "img/linkedin/7501340274879631362.jpg"
+  },
+  {
+    "url": "https://www.linkedin.com/posts/sudhanshu-joshi-35000421a_proud-leadership-startuplife-ugcPost-7450929086245281792-CGPq/",
+    "date": "2026-04-17",
+    "text": "A proud moment, honestly. From writing my first lines of code to now holding this card. Leading the Engineering team at Medoc. It’s been quite a journey. Same curiosity, same drive… just bigger responsibilities now."
+  }
+]

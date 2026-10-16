@@ -58,7 +58,7 @@ function parseFeed(xml) {
 }
 
 const monthYear = (iso) =>
-    new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+    new Date(iso + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
 
 function renderTiles(articles) {
     return articles.slice(0, MAX_ON_HOMEPAGE).map((a) => {

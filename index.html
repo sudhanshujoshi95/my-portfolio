@@ -288,6 +288,17 @@
                     <!-- medium:articles:end -->
                     <!-- LinkedIn articles: add <a class="tile article"> blocks here, below the generated block. -->
                 </div>
+
+                <!-- LinkedIn post teasers: filled from data/linkedin.json by js/site.js; stays hidden while that file is empty. -->
+                <div class="li-feed" id="li-feed" hidden>
+                    <div class="li-head">
+                        <p class="li-title">Recent on LinkedIn</p>
+                        <a class="go" href="https://www.linkedin.com/in/sudhanshu-joshi-35000421a/recent-activity/all/" target="_blank" rel="noopener">All posts</a>
+                    </div>
+                    <div class="marquee" id="li-marquee">
+                        <ul class="marquee-track" id="li-track"></ul>
+                    </div>
+                </div>
             </section>
 
             <!-- Resume -->
